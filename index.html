@@ -18,32 +18,24 @@
       font-family: 'Segoe UI', Roboto, sans-serif;
       color: var(--text);
       line-height: 1.6;
-      background: url('images/M104 - Final.png') no-repeat center center fixed; 
+      background: url('images/M104 - Final.png') no-repeat center center fixed;
       background-size: cover;
       opacity: 0;
       animation: fadeIn 1.5s ease-in forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: var(--bg-overlay);
       z-index: 0;
     }
 
-    main, header, footer, section {
-      position: relative;
-      z-index: 1;
-    }
+    main, header, footer, section { position: relative; z-index: 1; }
 
     header {
       text-align: center;
@@ -58,17 +50,9 @@
       text-shadow: 0 0 10px rgba(88,166,255,0.4);
     }
 
-    header p {
-      margin-top: 0.5rem;
-      color: var(--muted);
-      font-size: 1rem;
-    }
+    header p { margin-top:0.5rem; color:var(--muted); font-size:1rem; }
 
-    main {
-      max-width: 850px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
-    }
+    main { max-width:850px; margin:2.5rem auto; padding:0 1.5rem; }
 
     section {
       margin-bottom: 2.5rem;
@@ -78,52 +62,26 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
-    h2 {
-      color: var(--accent);
-      border-bottom: 1px solid rgba(88,166,255,0.3);
-      padding-bottom: 0.4rem;
-    }
+    h2 { color:var(--accent); border-bottom:1px solid rgba(88,166,255,0.3); padding-bottom:0.4rem; }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    h3 { color: #a8c6ff; margin-top:1.2rem; }
 
-    a:hover {
-      color: #9dcfff;
-      text-shadow: 0 0 5px rgba(88,166,255,0.5);
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      margin: 0.4rem 0;
-    }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { color:#9dcfff; text-shadow:0 0 5px rgba(88,166,255,0.5); }
 
     footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #707b86;
-      padding: 2rem 1rem;
-      backdrop-filter: blur(5px);
+      text-align:center;
+      font-size:0.85rem;
+      color:#707b86;
+      padding:2rem 1rem;
+      backdrop-filter:blur(5px);
     }
 
-    .contact a {
-      display: inline-block;
-      margin: 0.2rem 0.6rem;
-      color: var(--accent);
-    }
+    .contact a { display:inline-block; margin:0.2rem 0.6rem; color:var(--accent); }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-      section {
-        padding: 1.2rem;
-      }
+    @media (max-width:600px){
+      header h1{font-size:1.8rem;}
+      section{padding:1.2rem;}
     }
   </style>
 </head>
@@ -131,7 +89,7 @@
 <body>
   <header>
     <h1>Caden Phillips</h1>
-    <p>Astrophysics Student | Interested in Compact Objects and Computational Astrophysics</p>
+    <p>Astrophysics Student | Compact Objects & Computational Astrophysics</p>
   </header>
 
   <main>
@@ -139,53 +97,51 @@
       <h2>About Me</h2>
       <p><em>Exploring the physics of the Universe through code, models, and curiosity.</em></p>
       <p>
-        MPhys Astrophysics student at the University of Liverpool with research interests in neutron stars, gravitational
-        waves, and computational astrophysics. Experienced in theoretical modelling of compact objects through both
-        collaborative and independent research projects. Proficient in Python and scientific computing tools for data
-        analysis and simulation.
+        MPhys Astrophysics student at the University of Liverpool with research interests in neutron stars, 
+        gravitational waves, and computational astrophysics. Experienced in theoretical modelling of compact 
+        objects through both collaborative and independent research projects using Python and C++.
       </p>
     </section>
 
-    <!-- Research Section -->
     <section>
       <h2>Research</h2>
 
-      <h3>IFJ PAN – Kraków, Poland</h3>
+      <h3><a href="krakow.html">IFJ PAN – Kraków, Poland</a></h3>
       <p>
-        Summer 2024 research internship at the Institute of Nuclear Physics (IFJ PAN). My work focused on studying the 
-        internal structure of hybrid neutron stars within the Einstein Telescope detection range. I implemented and refined 
-        a Tolman–Oppenheimer–Volkoff solver, converting it from C++ to Python to analyse over 100 candidate equations of 
-        state, producing mass–radius relations, pressure–density profiles, and tidal deformabilities.
+        Summer 2025 research internship supervised by Dr. David Álvarez Castillo.  
+        Applied a Fisher-Information-Matrix framework to estimate tidal-deformability uncertainties in binary neutron-star systems.  
+        Developed and implemented a Tolman–Oppenheimer–Volkoff solver (converted from C++ to Python) to compute mass–radius and tidal-deformability relations for hybrid equations of state, 
+        comparing theoretical models with GW170817 observations.  
+        Presented results at the IFJ PAN Summer Internship Symposium 2025.
       </p>
       <p><a href="files/IFJ_PAN_Report.pdf" download>Download IFJ PAN Internship Report</a></p>
 
-      <h3>Teide Observatory – Tenerife, Spain</h3>
+      <h3><a href="teide.html">Teide Observatory – Tenerife, Spain</a></h3>
       <p>
-        Conducted observational and presentation-based research at the Teide Observatory in Tenerife. This project involved 
-        developing presentation material and data analysis for small-telescope observations, focusing on observational 
-        methods and outreach.
+        Week-long observational fieldwork under Dr. Daniel Harman at the IAC’s Teide Observatory.  
+        Conducted multi-band imaging using the 0.8 m IAC-80 and C14 Edge HD telescopes, constructed composite colour images, 
+        and produced Hertzsprung–Russell diagrams from photometric data.  
+        Developed presentation material summarising observational results.
       </p>
-      <p><a href="files/Presentation.pdf" download>Download Project Presentation</a></p>
+      <p><a href="files/Presentation.pdf" download>Download Teide Project Presentation</a></p>
 
-      <h3>Independent Research</h3>
+      <h3><a href="independent.html">Independent Research – Rotating Neutron Star Modelling</a></h3>
       <p>
-        Personal research focused on the theoretical and computational modelling of compact stars. I am currently expanding 
-        on my internship work to explore additional equations of state, focusing on neutron star crust transitions and 
-        incorporating updated nuclear models.
+        Ongoing self-directed follow-up study expanding on internship work to include rotational effects.  
+        Using the RNS and LORENE frameworks to model rapidly rotating neutron stars under various equations of state.  
+        Developed a C++ program to analyse how mass, radius, and spin influence relativistic stability limits.
       </p>
     </section>
 
-    <!-- CV Section -->
     <section>
       <h2>Curriculum Vitae</h2>
       <p>
         My CV summarises my education, research experience, technical skills, and outreach work in astronomy. 
-        It includes coursework highlights, programming experience, and ongoing research projects.
+        It includes details of coursework, programming experience, and current projects.
       </p>
       <p><a href="files/CV.pdf" download>Download My CV</a></p>
     </section>
 
-    <!-- Contact Section -->
     <section>
       <h2>Contact</h2>
       <div class="contact">

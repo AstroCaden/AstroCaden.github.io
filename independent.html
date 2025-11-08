@@ -8,7 +8,9 @@
 </head>
 <body>
   <main class="container">
-    <header>
+
+    <!-- Header -->
+    <header class="page-header">
       <h1>Independent Research – Rotating Neutron Star Modelling</h1>
       <p>Caden Phillips | Independent Computational Astrophysics Project</p>
       <nav style="margin-top: 1rem;">
@@ -16,31 +18,36 @@
       </nav>
     </header>
 
+    <!-- Overview -->
     <section class="card">
       <h2>Overview</h2>
       <hr>
       <p>
-        This independent research project focuses on the use of numerical relativity codes <strong>RNS</strong> and <strong>LORENE</strong> 
-        to model the structure of rapidly rotating neutron stars under varying physical parameters.
+        This independent research project focuses on the use of numerical relativity codes 
+        <strong>RNS</strong> and <strong>LORENE</strong> to model the structure of rapidly rotating neutron stars 
+        under varying physical parameters.
       </p>
       <p>
-        Custom <strong>C++ programs</strong> were written to automate parameter sweeps across a range of central densities, rotation frequencies, 
-        and stellar masses. These routines invoked RNS and LORENE solvers iteratively to compute the corresponding stellar equilibrium configurations, 
-        including quantities such as gravitational mass, equatorial radius, moment of inertia, and central density.
+        Custom <strong>C++ programs</strong> were written to automate parameter sweeps across a range of 
+        central densities, rotation frequencies, and stellar masses. These routines invoked RNS and LORENE 
+        solvers iteratively to compute the corresponding stellar equilibrium configurations, including 
+        quantities such as gravitational mass, equatorial radius, moment of inertia, and central density.
       </p>
       <p>
-        The output data from each model run were written to structured text files, which were subsequently parsed using a 
-        <strong>Python analysis pipeline</strong>. This Python script organised the numerical results and generated 2D and 3D visualisations 
-        to explore relationships between the principal parameters.
+        The output data from each model run were written to structured text files, which were subsequently 
+        parsed using a <strong>Python analysis pipeline</strong>. This Python script organised the numerical 
+        results and generated 2D and 3D visualisations to explore relationships between the principal parameters.
       </p>
       <p>
-        The figures below show (1) six 2D projections illustrating parameter correlations, and (2) a 3D scatter visualisation of 
-        mass, radius, and frequency, coloured by central density. These plots highlight expected relativistic trends: increasing rotation frequency 
-        corresponds to greater equatorial radii and reduced central densities at constant mass, consistent with rotational flattening effects 
-        predicted by the Tolman–Oppenheimer–Volkoff formalism and relativistic corrections handled by RNS and LORENE.
+        The figures below show (1) six 2D projections illustrating parameter correlations, and (2) a 3D scatter 
+        visualisation of mass, radius, and frequency, coloured by central density. These plots highlight expected 
+        relativistic trends: increasing rotation frequency corresponds to greater equatorial radii and reduced 
+        central densities at constant mass, consistent with rotational flattening effects predicted by the 
+        Tolman–Oppenheimer–Volkoff formalism and relativistic corrections handled by RNS and LORENE.
       </p>
     </section>
 
+    <!-- Results -->
     <section class="card">
       <h2>Results</h2>
       <hr>
@@ -55,6 +62,7 @@
         </div>
       </div>
     </section>
+
   </main>
 </body>
 </html>

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research | Caden Phillips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research: IFJ PAN – Hybrid Neutron Star Modelling</title>
   <style>
     :root {
       --text: #e6edf3;
@@ -11,139 +11,275 @@
       --muted: #9ba3b0;
       --radius: 12px;
       --bg-overlay: rgba(10, 12, 17, 0.85);
+      --card: rgba(20, 25, 32, 0.92);
     }
 
+    /* Base */
     body {
       margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-family: "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
       color: var(--text);
-      line-height: 1.6;
-      background: url('images/M104 - Final.png') no-repeat center center fixed;
+      line-height: 1.7;
+      background: url("images/M104 - Final.png") no-repeat center center fixed;
       background-size: cover;
-      opacity: 0;
-      animation: fadeIn 1.5s ease-in forwards;
     }
-
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       background: var(--bg-overlay);
       z-index: 0;
     }
+    header, main, footer { position: relative; z-index: 1; }
 
-    main, header, footer, section { position: relative; z-index: 1; }
-
+    /* Header */
     header {
-      text-align: center;
-      padding: 2.5rem 1rem 1.5rem;
-      backdrop-filter: blur(5px);
+      padding: 3rem 1rem 2rem;
+      backdrop-filter: blur(6px);
+      text-align: center;             /* ensure centered */
     }
-
     header h1 {
-      margin: 0;
-      font-size: 2.2rem;
+      margin: 0 0 .5rem 0;
+      font-size: 2.3rem;
       color: var(--accent);
-      text-shadow: 0 0 10px rgba(88,166,255,0.4);
+      text-shadow: 0 0 12px rgba(88,166,255,0.5);
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      text-align: center;             /* keep subtitle centered */
     }
 
-    header p { color: var(--muted); margin-top: 0.5rem; }
-
+    /* Layout */
     main {
-      max-width: 900px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
+      max-width: 960px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.25rem;
     }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .back-link:hover { color: #9dcfff; text-shadow: 0 0 5px rgba(88,166,255,0.5); }
 
     section {
-      background-color: rgba(20, 25, 32, 0.9);
-      padding: 1.8rem;
+      background: var(--card);
+      padding: 1.8rem 2rem;
       border-radius: var(--radius);
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      margin-bottom: 2.5rem;
+      box-shadow: 0 0 14px rgba(0,0,0,0.45);
+      margin-bottom: 2.2rem;
     }
-
     h2 {
       color: var(--accent);
-      border-bottom: 1px solid rgba(88,166,255,0.3);
-      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(88,166,255,0.35);
+      padding-bottom: .4rem;
+      margin-top: 0;
+      letter-spacing: .25px;
     }
+    p { margin: 0 0 1rem 0; text-align: justify; }
 
-    img {
+    /* Figure system */
+    figure {
+      margin: .4rem 0 1rem 0;
+    }
+    .fig-float {
+      max-width: 42%;
+      min-width: 240px;
+    }
+    .right  { float: right;  margin: .4rem 0 .8rem 1.2rem; }
+    .left   { float: left;   margin: .4rem 1.2rem .8rem 0; }
+    .center { max-width: 68%; margin: 1.2rem auto; float: none; display: block; }
+    .tight  { max-width: 60%; } /* for the binary Lambda comparison */
+
+    figure img {
+      width: 100%;
+      height: auto;
       display: block;
-      max-width: 100%;
       border-radius: var(--radius);
-      margin: 1.2rem auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+    figcaption {
+      font-size: .92rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: .45rem;
+      line-height: 1.4;
     }
 
+    /* Clearfix helper after mixed floats */
+    .clear { clear: both; }
+
+    /* Lists */
+    ul { margin: .6rem 0 0 1.2rem; }
+    li { margin: .35rem 0; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: #9dcfff; text-shadow: 0 0 5px rgba(88,166,255,0.5); }
 
+    /* Footer */
     footer {
       text-align: center;
-      font-size: 0.85rem;
-      color: #707b86;
+      font-size: .85rem;
+      color: #7a8592;
       padding: 2rem 1rem;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(4px);
     }
 
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      section { padding: 1.2rem; }
+    /* Responsive */
+    @media (max-width: 780px) {
+      section { padding: 1.4rem 1.2rem; }
+      .fig-float { float: none; max-width: 100%; margin: .6rem 0 1rem 0; }
+      .center, .tight { max-width: 100%; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Research: [Project Title]</h1>
-    <p>Caden Phillips — MPhys Astrophysics, University of Liverpool</p>
+    <h1>IFJ PAN – Hybrid Neutron Star Modelling</h1>
+    <p>Caden Phillips | Henryk Niewodniczański Institute of Nuclear Physics, Kraków</p>
   </header>
 
   <main>
     <a href="index.html" class="back-link">← Back to main site</a>
 
+    <!-- Overview -->
     <section>
       <h2>Overview</h2>
       <p>
-        [Briefly describe the research project — e.g., when, where, and under whom it was done.
-        Summarise the main scientific focus and the broader goal of the work.]
+        This study models the structure of neutron stars with possible deconfined quark cores (hybrid stars) and
+        summarises their gravitational-wave–relevant properties for the Einstein Telescope context. A Python implementation
+        of a TOV solver (converted from C++) was used to generate mass–radius and tidal-deformability sequences for a set
+        of hybrid equations of state (EoS). Results are compared with constraints consistent with GW170817. The descriptions
+        below follow the figures and wording used in the project report and presentation.
       </p>
     </section>
 
+    <!-- EoS & Phase Transition -->
     <section>
-      <h2>Methods and Tools</h2>
+      <h2>Hybrid Equations of State & Phase Transition</h2>
+
+      <figure class="fig-float right">
+        <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical potential across hybrid EoS">
+        <figcaption>
+          Pressure–chemical potential trends across the hybrid EoS set, showing where the first-order phase transition
+          turns on and how the quark-matter stiffness varies. These choices set the conditions under which a hybrid
+          branch can emerge.
+        </figcaption>
+      </figure>
+
       <p>
-        [Describe the computational, observational, or theoretical methods you used — e.g., Python, C++, 
-        TOV solvers, telescopic imaging, data reduction tools, etc.]
+        Hybrid EoS were constructed by joining hadronic and quark phases via a first-order transition. In the pressure–μ
+        view, the onset and relative stiffness of the quark sector are visible as distinct segments or kinks, matching the
+        presentation’s overview of how parameter choices shape the transition behaviour. The figure emphasises the part of
+        the parameter space used to feed the stellar-structure calculation rather than specific microphysical derivations.
       </p>
-      <img src="images/example_plot.png" alt="Example result or plot">
+
+      <figure class="fig-float left">
+        <img src="images/Pressure_vs_Epsilon_Overall_FINAL.png" alt="Pressure vs energy density across hybrid EoS">
+        <figcaption>
+          Pressure–energy density curves indicating where the EoS moves from nuclear to quark matter. The slope change at
+          the transition governs the stability behaviour seen later in the mass–radius sequences.
+        </figcaption>
+      </figure>
+
+      <p>
+        In pressure–ε, the transition appears as a change in slope between branches. As summarised in the report, stronger
+        discontinuities map to unstable regions in the sequence of stellar models, which is the precondition for a separated,
+        re-stabilised hybrid branch (“twin-star” behaviour). The panel is used as the EoS input diagnostic for subsequent TOV
+        modelling rather than for extracting absolute thermodynamic parameters here.
+      </p>
+      <div class="clear"></div>
     </section>
 
+    <!-- TOV & M–R -->
     <section>
-      <h2>Results and Findings</h2>
+      <h2>TOV Modelling & Mass–Radius Sequences</h2>
+
+      <figure class="fig-float right">
+        <img src="images/MR_Mg=600_00_06.dat.png" alt="Example mass–radius sequence with a hybrid branch">
+        <figcaption>
+          Example mass–radius track produced by the Python TOV solver. An unstable segment separates the ordinary neutron-star
+          branch from a re-stabilised hybrid branch (twin-star behaviour), consistent with the phase-transition structure in
+          the EoS input.
+        </figcaption>
+      </figure>
+
       <p>
-        [Summarise your main results or discoveries — e.g., mass-radius curves, plots of tidal deformability,
-        HR diagrams, etc. You can include 1–3 plots or images here.]
+        The Python solver integrates the TOV equations for each EoS to generate full M–R sequences. The example shown reproduces
+        the expected pattern from the presentation: a stable branch, an intermediate unstable region associated with the transition,
+        and a re-stabilised hybrid branch at smaller radii. The emphasis is on the qualitative pattern (presence of the branch and
+        the separation) rather than absolute values here.
       </p>
-      <img src="images/example_result.png" alt="Research output visualisation">
+
+      <figure class="center">
+        <img src="images/Mass_vs_Radius_FINAL.png" alt="Combined mass–radius relations across the model set">
+        <figcaption>
+          Combined mass–radius relations across the hybrid EoS sample. Trends illustrated in the presentation are retained: stiffer
+          behaviour corresponds to larger radii and higher maximum masses, while hybrid branches appear at smaller radii when the
+          phase transition is sufficiently strong.
+        </figcaption>
+      </figure>
     </section>
 
+    <!-- Tidal deformability -->
+    <section>
+      <h2>Tidal Deformability</h2>
+
+      <figure class="fig-float left">
+        <img src="images/LM_Mg=600_00_06.dat.png" alt="Lambda vs Mass for a representative EoS">
+        <figcaption>
+          Λ(M) for a representative model. The presentation describes the rapid decrease of tidal deformability with mass and
+          a distinct change when the hybrid core forms, reflecting the compactness change across the sequence.
+        </figcaption>
+      </figure>
+
+      <p>
+        For gravitational-wave applications, the presentation highlights Λ(M) as the diagnostic linking compactness to waveform
+        phasing. The example panel shows the steep fall of Λ with increasing mass and the behaviour associated with entering the
+        hybrid-core regime. Trends are discussed qualitatively in line with the report text rather than used for numerical inference
+        on this page.
+      </p>
+
+      <figure class="center">
+        <img src="images/Lambda_vs_Mass_FINAL.png" alt="Combined Lambda vs Mass relations">
+        <figcaption>
+          Combined Λ–M curves across the model set. Lower Λ values correspond to more compact configurations, consistent with the
+          summary plots shown in the presentation.
+        </figcaption>
+      </figure>
+
+      <figure class="center tight">
+        <img src="images/Tidal Deformability Comparison.png" alt="Binary tidal deformabilities compared to observational contours">
+        <figcaption>
+          Binary tidal deformabilities (Λ₂ versus Λ₁) in comparison with observational confidence regions (as shown in the talk).
+          The plotted models fall within the indicated contours, in line with the discussion slides that validate the code output.
+        </figcaption>
+      </figure>
+
+    </section>
+
+    <!-- Summary -->
+    <section>
+      <h2>Summary</h2>
+      <p>
+        The figures above, drawn from the report and presentation, summarise the workflow: hybrid EoS construction with a first-order
+        transition, TOV-based M–R generation including hybrid branches, and tidal-deformability diagnostics used for gravitational-wave
+        comparisons. The qualitative behaviours match the presented results: the emergence of a re-stabilised hybrid branch under a
+        sufficiently strong transition and the associated decrease in Λ for more compact configurations.
+      </p>
+    </section>
+
+    <!-- Downloads -->
     <section>
       <h2>Downloads</h2>
       <ul>
-        <li><a href="files/IFJ_PAN_Report.pdf" download>Download Full Report</a></li>
-        <li><a href="files/Presentation.pdf" download>Download Presentation</a></li>
+        <li><a href="files/Physical Inputs for Simulations of Gravitational Wave Emissions from Compact Stars within the Einstein Telescope Detection Range.pdf" download>Final Report (PDF)</a></li>
+        <li><a href="files/Yaiza_Caden_Project_10(7).pptx" download>Presentation Slides (PPTX)</a></li>
+        <li><a href="files/certificate_Caden.pdf" download>IFJ PAN Certificate (PDF)</a></li>
       </ul>
     </section>
   </main>

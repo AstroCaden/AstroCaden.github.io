@@ -1,11 +1,151 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>AstroCaden Test</title>
-  </head>
-  <body>
-    <h1>Hello from Caden!</h1>
-    <p>If you see this, your GitHub Pages setup is working correctly.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caden Phillips – Astrophysics Research</title>
+  <style>
+    :root {
+      --bg: #0e1117;
+      --bg-light: #161b22;
+      --text: #e6edf3;
+      --accent: #58a6ff;
+      --muted: #8b949e;
+      --radius: 12px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d1117, #1c2128);
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: var(--accent);
+    }
+
+    header p {
+      margin: 0.3rem 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background-color: var(--bg-light);
+      padding: 1.5rem 1.8rem;
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 0.4rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 2rem 1rem;
+      border-top: 1px solid #30363d;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 0.2rem 0.6rem;
+      color: var(--accent);
+    }
+
+    .downloads {
+      background-color: #141920;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Caden Phillips</h1>
+    <p>Undergraduate Researcher – Astrophysics & Computational Modelling</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I am an undergraduate astrophysics student with interests in compact objects, gravitational-wave modelling, and computational astrophysics.
+        My recent work at IFJ PAN in Kraków focused on studying the structure of hybrid neutron stars within the Einstein Telescope detection range.
+        I implemented and refined a Tolman–Oppenheimer–Volkoff (TOV) solver, converting it from C++ to Python to analyse over 100 candidate equations of state, 
+        investigating their mass–radius relations, pressure–density profiles, and tidal deformabilities.
+      </p>
+      <p>
+        I am passionate about using numerical modelling and data analysis to understand the physics of extreme astrophysical environments.
+      </p>
+    </section>
+
+    <section class="downloads">
+      <h2>Downloads</h2>
+      <ul>
+        <li><a href="files/CV.pdf" download>Download my CV</a></li>
+        <li><a href="files/IFJ_PAN_Report.pdf" download>IFJ PAN Internship Report</a></li>
+        <li><a href="files/Presentation.pdf" download>Project Presentation</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>Email: <a href="mailto:caden@example.com">caden@example.com</a></p> <!-- EDIT HERE -->
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">linkedin.com/in/YOUR-LINKEDIN</a></p> <!-- EDIT HERE -->
+        <p>GitHub: <a href="https://github.com/AstroCaden" target="_blank">github.com/AstroCaden</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Caden Phillips. All rights reserved.</p>
+  </footer>
+</body>
 </html>

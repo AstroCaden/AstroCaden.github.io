@@ -22,6 +22,7 @@
       line-height: 1.7;
       background: url("images/M104 - Final.png") no-repeat center center fixed;
       background-size: cover;
+      background-color: #0a0d12;
     }
     body::before {
       content: "";
@@ -36,7 +37,7 @@
     header {
       padding: 3rem 1rem 2rem;
       backdrop-filter: blur(6px);
-      text-align: center;             /* ensure centered */
+      text-align: center;
     }
     header h1 {
       margin: 0 0 .5rem 0;
@@ -48,18 +49,17 @@
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
-      text-align: center;             /* keep subtitle centered */
     }
 
     /* Layout */
     main {
       max-width: 960px;
-      margin: 2rem auto 3rem;
-      padding: 0 1.25rem;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
     }
     .back-link {
       display: inline-block;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
       font-size: 0.95rem;
       color: var(--accent);
       text-decoration: none;
@@ -68,7 +68,7 @@
 
     section {
       background: var(--card);
-      padding: 1.8rem 2rem;
+      padding: 1.8rem;
       border-radius: var(--radius);
       box-shadow: 0 0 14px rgba(0,0,0,0.45);
       margin-bottom: 2.2rem;
@@ -82,36 +82,24 @@
     }
     p { margin: 0 0 1rem 0; text-align: justify; }
 
-    /* Figure system */
+    /* Figures - non-floating layout */
     figure {
-      margin: .4rem 0 1rem 0;
+      margin: 1.5rem auto;
+      text-align: center;
+      max-width: 700px;
     }
-    .fig-float {
-      max-width: 42%;
-      min-width: 240px;
-    }
-    .right  { float: right;  margin: .4rem 0 .8rem 1.2rem; }
-    .left   { float: left;   margin: .4rem 1.2rem .8rem 0; }
-    .center { max-width: 68%; margin: 1.2rem auto; float: none; display: block; }
-    .tight  { max-width: 60%; } /* for the binary Lambda comparison */
-
     figure img {
       width: 100%;
-      height: auto;
-      display: block;
       border-radius: var(--radius);
       box-shadow: 0 0 8px rgba(0,0,0,0.5);
+      display: block;
     }
     figcaption {
       font-size: .92rem;
       color: var(--muted);
-      text-align: center;
       margin-top: .45rem;
       line-height: 1.4;
     }
-
-    /* Clearfix helper after mixed floats */
-    .clear { clear: both; }
 
     /* Lists */
     ul { margin: .6rem 0 0 1.2rem; }
@@ -131,8 +119,7 @@
     /* Responsive */
     @media (max-width: 780px) {
       section { padding: 1.4rem 1.2rem; }
-      .fig-float { float: none; max-width: 100%; margin: .6rem 0 1rem 0; }
-      .center, .tight { max-width: 100%; }
+      figure { max-width: 100%; }
     }
   </style>
 </head>
@@ -162,7 +149,7 @@
     <section>
       <h2>Hybrid Equations of State & Phase Transition</h2>
 
-      <figure class="fig-float right">
+      <figure>
         <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical potential across hybrid EoS">
         <figcaption>
           Pressure–chemical potential trends across the hybrid EoS set, showing where the first-order phase transition
@@ -178,7 +165,7 @@
         the parameter space used to feed the stellar-structure calculation rather than specific microphysical derivations.
       </p>
 
-      <figure class="fig-float left">
+      <figure>
         <img src="images/Pressure_vs_Epsilon_Overall_FINAL.png" alt="Pressure vs energy density across hybrid EoS">
         <figcaption>
           Pressure–energy density curves indicating where the EoS moves from nuclear to quark matter. The slope change at
@@ -192,14 +179,13 @@
         re-stabilised hybrid branch (“twin-star” behaviour). The panel is used as the EoS input diagnostic for subsequent TOV
         modelling rather than for extracting absolute thermodynamic parameters here.
       </p>
-      <div class="clear"></div>
     </section>
 
     <!-- TOV & M–R -->
     <section>
       <h2>TOV Modelling & Mass–Radius Sequences</h2>
 
-      <figure class="fig-float right">
+      <figure>
         <img src="images/MR_Mg=600_00_06.dat.png" alt="Example mass–radius sequence with a hybrid branch">
         <figcaption>
           Example mass–radius track produced by the Python TOV solver. An unstable segment separates the ordinary neutron-star
@@ -215,7 +201,7 @@
         the separation) rather than absolute values here.
       </p>
 
-      <figure class="center">
+      <figure>
         <img src="images/Mass_vs_Radius_FINAL.png" alt="Combined mass–radius relations across the model set">
         <figcaption>
           Combined mass–radius relations across the hybrid EoS sample. Trends illustrated in the presentation are retained: stiffer
@@ -229,7 +215,7 @@
     <section>
       <h2>Tidal Deformability</h2>
 
-      <figure class="fig-float left">
+      <figure>
         <img src="images/LM_Mg=600_00_06.dat.png" alt="Lambda vs Mass for a representative EoS">
         <figcaption>
           Λ(M) for a representative model. The presentation describes the rapid decrease of tidal deformability with mass and
@@ -244,7 +230,7 @@
         on this page.
       </p>
 
-      <figure class="center">
+      <figure>
         <img src="images/Lambda_vs_Mass_FINAL.png" alt="Combined Lambda vs Mass relations">
         <figcaption>
           Combined Λ–M curves across the model set. Lower Λ values correspond to more compact configurations, consistent with the
@@ -252,14 +238,13 @@
         </figcaption>
       </figure>
 
-      <figure class="center tight">
+      <figure>
         <img src="images/Tidal Deformability Comparison.png" alt="Binary tidal deformabilities compared to observational contours">
         <figcaption>
           Binary tidal deformabilities (Λ₂ versus Λ₁) in comparison with observational confidence regions (as shown in the talk).
           The plotted models fall within the indicated contours, in line with the discussion slides that validate the code output.
         </figcaption>
       </figure>
-
     </section>
 
     <!-- Summary -->

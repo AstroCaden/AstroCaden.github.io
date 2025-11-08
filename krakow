@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research | Caden Phillips</title>
+  <style>
+    :root {
+      --text: #e6edf3;
+      --accent: #58a6ff;
+      --muted: #9ba3b0;
+      --radius: 12px;
+      --bg-overlay: rgba(10, 12, 17, 0.85);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: url('images/M104 - Final.png') no-repeat center center fixed;
+      background-size: cover;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
+    }
+
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--bg-overlay);
+      z-index: 0;
+    }
+
+    main, header, footer, section { position: relative; z-index: 1; }
+
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem 1.5rem;
+      backdrop-filter: blur(5px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(88,166,255,0.4);
+    }
+
+    header p { color: var(--muted); margin-top: 0.5rem; }
+
+    main {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      background-color: rgba(20, 25, 32, 0.9);
+      padding: 1.8rem;
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(88,166,255,0.3);
+      padding-bottom: 0.4rem;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: var(--radius);
+      margin: 1.2rem auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #9dcfff; text-shadow: 0 0 5px rgba(88,166,255,0.5); }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #707b86;
+      padding: 2rem 1rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      section { padding: 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Research: [Project Title]</h1>
+    <p>Caden Phillips — MPhys Astrophysics, University of Liverpool</p>
+  </header>
+
+  <main>
+    <a href="index.html" class="back-link">← Back to main site</a>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        [Briefly describe the research project — e.g., when, where, and under whom it was done.
+        Summarise the main scientific focus and the broader goal of the work.]
+      </p>
+    </section>
+
+    <section>
+      <h2>Methods and Tools</h2>
+      <p>
+        [Describe the computational, observational, or theoretical methods you used — e.g., Python, C++, 
+        TOV solvers, telescopic imaging, data reduction tools, etc.]
+      </p>
+      <img src="images/example_plot.png" alt="Example result or plot">
+    </section>
+
+    <section>
+      <h2>Results and Findings</h2>
+      <p>
+        [Summarise your main results or discoveries — e.g., mass-radius curves, plots of tidal deformability,
+        HR diagrams, etc. You can include 1–3 plots or images here.]
+      </p>
+      <img src="images/example_result.png" alt="Research output visualisation">
+    </section>
+
+    <section>
+      <h2>Downloads</h2>
+      <ul>
+        <li><a href="files/IFJ_PAN_Report.pdf" download>Download Full Report</a></li>
+        <li><a href="files/Presentation.pdf" download>Download Presentation</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Caden Phillips. All rights reserved.</p>
+  </footer>
+</body>
+</html>

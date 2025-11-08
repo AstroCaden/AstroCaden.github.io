@@ -6,37 +6,53 @@
   <title>Caden Phillips – Astrophysics Research</title>
   <style>
     :root {
-      --bg: #0e1117;
-      --bg-light: #161b22;
       --text: #e6edf3;
       --accent: #58a6ff;
-      --muted: #8b949e;
+      --muted: #9ba3b0;
       --radius: 12px;
+      --bg-overlay: rgba(10, 12, 17, 0.85);
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      background: url('M104 - Final.png') no-repeat center center fixed; /* <-- replace path if needed */
+      background-size: cover;
+    }
+
+    /* dark overlay to keep text readable */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-overlay);
+      z-index: 0;
+    }
+
+    main, header, footer, section {
+      position: relative;
+      z-index: 1;
     }
 
     header {
-      background: linear-gradient(135deg, #0d1117, #1c2128);
       text-align: center;
       padding: 3rem 1rem 2rem;
-      border-bottom: 1px solid #30363d;
+      backdrop-filter: blur(5px);
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       color: var(--accent);
     }
 
     header p {
-      margin: 0.3rem 0;
+      margin-top: 0.5rem;
       color: var(--muted);
       font-size: 1rem;
     }
@@ -49,15 +65,15 @@
 
     section {
       margin-bottom: 2.5rem;
-      background-color: var(--bg-light);
+      background-color: rgba(20, 25, 32, 0.85);
       padding: 1.5rem 1.8rem;
       border-radius: var(--radius);
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
     h2 {
       color: var(--accent);
-      border-bottom: 1px solid #30363d;
+      border-bottom: 1px solid rgba(88,166,255,0.3);
       padding-bottom: 0.4rem;
     }
 
@@ -84,7 +100,7 @@
       font-size: 0.9rem;
       color: var(--muted);
       padding: 2rem 1rem;
-      border-top: 1px solid #30363d;
+      backdrop-filter: blur(5px);
     }
 
     .contact a {
@@ -93,13 +109,12 @@
       color: var(--accent);
     }
 
-    .downloads {
-      background-color: #141920;
-    }
-
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.8rem;
+      }
+      section {
+        padding: 1.2rem;
       }
     }
   </style>
@@ -125,7 +140,7 @@
       </p>
     </section>
 
-    <section class="downloads">
+    <section>
       <h2>Downloads</h2>
       <ul>
         <li><a href="files/CV.pdf" download>Download my CV</a></li>
@@ -137,8 +152,8 @@
     <section>
       <h2>Contact</h2>
       <div class="contact">
-        <p>Email: <a href="mailto:caden@example.com">caden@example.com</a></p> <!-- EDIT HERE -->
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">linkedin.com/in/YOUR-LINKEDIN</a></p> <!-- EDIT HERE -->
+        <p>Email: <a href="mailto:cadenphillips@hotmail.com">cadenphillips@hotmail.com</a></p> 
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">LinkedIn</a></p> 
         <p>GitHub: <a href="https://github.com/AstroCaden" target="_blank">github.com/AstroCaden</a></p>
       </div>
     </section>

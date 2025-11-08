@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research | Caden Phillips</title>
+  <title>Observatorio del Teide | Caden Phillips</title>
   <style>
     :root {
       --text: #e6edf3;
@@ -18,48 +18,35 @@
       font-family: 'Segoe UI', Roboto, sans-serif;
       color: var(--text);
       line-height: 1.6;
-      background: url('images/M104 - Final.png') no-repeat center center fixed;
-      background-size: cover;
-      opacity: 0;
-      animation: fadeIn 1.5s ease-in forwards;
+      background: #0a0d12;
     }
-
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: var(--bg-overlay);
-      z-index: 0;
-    }
-
-    main, header, footer, section { position: relative; z-index: 1; }
 
     header {
       text-align: center;
-      padding: 2.5rem 1rem 1.5rem;
-      backdrop-filter: blur(5px);
+      padding: 3rem 1rem 2rem;
+      background: rgba(15, 20, 30, 0.9);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       color: var(--accent);
-      text-shadow: 0 0 10px rgba(88,166,255,0.4);
     }
 
-    header p { color: var(--muted); margin-top: 0.5rem; }
+    header p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
 
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2.5rem auto;
       padding: 0 1.5rem;
     }
 
     section {
-      background-color: rgba(20, 25, 32, 0.9);
+      background-color: rgba(20, 25, 32, 0.85);
       padding: 1.8rem;
       border-radius: var(--radius);
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
@@ -72,79 +59,187 @@
       padding-bottom: 0.4rem;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-      border-radius: var(--radius);
-      margin: 1.2rem auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: #9dcfff; text-shadow: 0 0 5px rgba(88,166,255,0.5); }
-
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #707b86;
-      padding: 2rem 1rem;
-      backdrop-filter: blur(5px);
+    a:hover {
+      text-decoration: underline;
     }
 
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      color: var(--text);
       font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      section { padding: 1.2rem; }
+    th, td {
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.5rem 0.8rem;
+      text-align: center;
+    }
+
+    th {
+      background: rgba(88,166,255,0.2);
+      color: var(--accent);
+    }
+
+    caption {
+      text-align: left;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .gallery-item p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 2rem 1rem;
+      backdrop-filter: blur(5px);
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Research: [Project Title]</h1>
-    <p>Caden Phillips — MPhys Astrophysics, University of Liverpool</p>
-  </header>
+	<header>
+	  <h1>Observatorio del Teide – Imaging & Photometric Analysis</h1>
+	  <p>Caden Phillips | Instituto de Astrofísica de Canarias, Tenerife</p>
+	  <nav style="margin-top: 1rem;">
+	  </nav>
+	</header>
+
 
   <main>
-    <a href="index.html" class="back-link">← Back to main site</a>
+	<a href="index.html" style="color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 1.5rem;">← Back to main site</a>
 
     <section>
-      <h2>Overview</h2>
+      <h2>Summary</h2>
       <p>
-        [Briefly describe the research project — e.g., when, where, and under whom it was done.
-        Summarise the main scientific focus and the broader goal of the work.]
+        This project was carried out at the Observatorio del Teide, Tenerife, and focused on observational astrophysics using both
+        the Celestron C14 Edge HD and IAC-80 telescopes. Over seven nights, I performed imaging of a range of deep-sky objects including galaxies,
+        open clusters, planetary and diffuse nebulae. The project developed my understanding of photometry, filter use, and data reduction,
+        culminating in the production of colour–magnitude and Hertzsprung–Russell diagrams from cluster observations.
       </p>
     </section>
 
+	<section>
+	  <h2>Equipment Used</h2>
+	  <ul>
+		<li><strong>Celestron C14 Edge HD telescope</strong></li>
+		<li>Luminos 23mm 82° eyepiece</li>
+		<li>QHY-163M/C camera</li>
+		<li>0.7× reducer</li>
+		<li><strong>Software:</strong> MaxIm DL, CWPI, TLImage, LTImage, SAOImage</li>
+		<li><strong>IAC-80 Telescope</strong> — Focal Length: 9020 mm, Aperture: 820 mm, Resolution: 4096×4112 px, Pixel Size: 15×15 µm (FOV ≈ 0.39° × 0.39°)</li>
+	  </ul>
+	</section>
+
+
     <section>
-      <h2>Methods and Tools</h2>
-      <p>
-        [Describe the computational, observational, or theoretical methods you used — e.g., Python, C++, 
-        TOV solvers, telescopic imaging, data reduction tools, etc.]
-      </p>
-      <img src="images/example_plot.png" alt="Example result or plot">
+      <h2>Observations</h2>
+      <table>
+        <caption>Observation Log (All Nights)</caption>
+        <thead>
+          <tr>
+            <th>Night</th>
+            <th>Object</th>
+            <th>Object Type</th>
+            <th>RA</th>
+            <th>Dec</th>
+            <th>Filters</th>
+            <th>Time/s</th>
+            <th>Repeats</th>
+            <th>Telescope</th>
+            <th>Time of Observation (Approx.) / WEST</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2</td><td>M13</td><td>Globular Cluster</td><td>16h 41m 41.44s</td><td>+36° 27′ 26.9″</td><td>B,V,I,R</td><td>180,90,60,180</td><td>5</td><td>Celestron</td><td>01:00</td></tr>
+          <tr><td>3</td><td>M20</td><td>Open Cluster, Emission, Reflection and Dark Nebula</td><td>18h 02m 23s</td><td>−23° 01′ 48″</td><td>B,O III,H alpha</td><td>40,60,60</td><td>3</td><td>Celestron</td><td>02:30</td></tr>
+          <tr><td>4</td><td>Abell 39</td><td>Planetary Nebula</td><td>16h 27m 33.72s</td><td>+27° 54′ 33.47″</td><td>V,O III</td><td>300,300</td><td>3</td><td>IAC-80</td><td>01:20</td></tr>
+          <tr><td>4</td><td>M7</td><td>Open Cluster</td><td>17h 53m 51.2s</td><td>−34° 37′ 34″</td><td>B,V,I,R</td><td>8,8,8,20</td><td>5</td><td>Celestron</td><td>03:00</td></tr>
+          <tr><td>4</td><td>NGC 6960</td><td>Diffuse Nebula</td><td>20h 45m 38s</td><td>+30° 42′ 30″</td><td>H alpha,O III,V,R</td><td>200,200,200,200</td><td>3</td><td>IAC-80</td><td>05:00</td></tr>
+          <tr><td>5</td><td>M104</td><td>Galaxy</td><td>12h 39m 59.43s</td><td>−11° 37′ 23.12″</td><td>B,V,R</td><td>180,180,180</td><td>5</td><td>Celestron</td><td>22:30</td></tr>
+          <tr><td>6</td><td>M63</td><td>Galaxy</td><td>13h 15m 49.27s</td><td>+42° 01′ 45.73″</td><td>B,V,R</td><td>180,180,180</td><td>5</td><td>Celestron</td><td>00:30</td></tr>
+          <tr><td>6</td><td>NGC 7331</td><td>Galaxy</td><td>22h 37m 04.06s</td><td>+34° 24′ 56.72″</td><td>B,V,R</td><td>60,60,60</td><td>4(5)*</td><td>Celestron</td><td>01:30</td></tr>
+        </tbody>
+      </table>
+      <p><em>*Intended to do 5 but tracking failed after 4</em></p>
     </section>
 
     <section>
-      <h2>Results and Findings</h2>
-      <p>
-        [Summarise your main results or discoveries — e.g., mass-radius curves, plots of tidal deformability,
-        HR diagrams, etc. You can include 1–3 plots or images here.]
-      </p>
-      <img src="images/example_result.png" alt="Research output visualisation">
+      <h2>Filter Characteristics</h2>
+      <table>
+        <thead>
+          <tr><th>Filter</th><th>Maximum Wavelength / nm</th><th>Minimum Wavelength / nm</th><th>Centre Wavelength / nm</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>B</td><td>440</td><td>500</td><td>445</td></tr>
+          <tr><td>V</td><td>509</td><td>551</td><td>—</td></tr>
+          <tr><td>R</td><td>590</td><td>810</td><td>658</td></tr>
+          <tr><td>I</td><td>810</td><td>1000</td><td>806</td></tr>
+          <tr><td>H alpha</td><td>651</td><td>661</td><td>656</td></tr>
+          <tr><td>O III</td><td>495</td><td>501</td><td>500</td></tr>
+          <tr><td>L</td><td>400</td><td>700</td><td>Broad</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section>
-      <h2>Downloads</h2>
-      <ul>
-        <li><a href="files/IFJ_PAN_Report.pdf" download>Download Full Report</a></li>
-        <li><a href="files/Presentation.pdf" download>Download Presentation</a></li>
-      </ul>
+      <h2>Image Gallery</h2>
+      <div class="gallery">
+        <div class="gallery-item"><img src="images/M13.png" alt="M13"><p>M13 – Globular Cluster</p></div>
+        <div class="gallery-item"><img src="images/M20.png" alt="M20"><p>M20 – Trifid Nebula</p></div>
+        <div class="gallery-item"><img src="images/Abell39.png" alt="Abell 39"><p>Abell 39 – Planetary Nebula</p></div>
+        <div class="gallery-item"><img src="images/M7.png" alt="M7"><p>M7 – Open Cluster</p></div>
+        <div class="gallery-item"><img src="images/NGC6960.png" alt="NGC 6960"><p>NGC 6960 – Diffuse Nebula</p></div>
+        <div class="gallery-item"><img src="images/M104.png" alt="M104"><p>M104 – Sombrero Galaxy</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Analysis</h2>
+
+      <h3>Magnitude Distribution</h3>
+      <img src="images/MD.png" alt="Magnitude Distribution" style="width:100%;max-width:600px;display:block;margin:auto;border-radius:12px;">
+      <p>The magnitude distribution graph shows the range of stellar magnitudes obtained from photometric analysis of M13,
+        providing insight into the completeness and depth of the dataset.</p>
+
+      <h3>B–V vs V–R Plot</h3>
+      <img src="images/BVVR.png" alt="B–V vs V–R Plot" style="width:100%;max-width:600px;display:block;margin:auto;border-radius:12px;">
+      <p>The colour–colour diagram (B–V vs V–R) displays the relationship between filter bands, illustrating stellar temperature variation within the field.</p>
+
+      <h3>Hertzsprung–Russell Diagram</h3>
+      <img src="images/HR.png" alt="HR Diagram" style="width:100%;max-width:600px;display:block;margin:auto;border-radius:12px;">
+      <p>The Hertzsprung–Russell diagram produced from the same photometric data shows the clear main sequence, along with
+        evolved stars within the cluster, aligning with expected theoretical distributions.</p>
     </section>
   </main>
 

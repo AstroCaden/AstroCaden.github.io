@@ -22,7 +22,6 @@
       line-height: 1.7;
       background: url("images/M104 - Final.png") no-repeat center center fixed;
       background-size: cover;
-      background-color: #0a0d12;
     }
     body::before {
       content: "";
@@ -35,11 +34,9 @@
 
     /* Header */
     header {
-      text-align: center;
       padding: 3rem 1rem 2rem;
       backdrop-filter: blur(6px);
-      max-width: 960px;
-      margin: 0 auto;   /* <-- centers header to match main width */
+      text-align: center;             /* ensure centered */
     }
     header h1 {
       margin: 0 0 .5rem 0;
@@ -51,7 +48,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
-      text-align: center;
+      text-align: center;             /* keep subtitle centered */
     }
 
     /* Layout */
@@ -85,24 +82,36 @@
     }
     p { margin: 0 0 1rem 0; text-align: justify; }
 
-    /* Figures (centered layout) */
+    /* Figure system */
     figure {
-      margin: 1.5rem auto;
-      text-align: center;
-      max-width: 700px;
+      margin: .4rem 0 1rem 0;
     }
+    .fig-float {
+      max-width: 42%;
+      min-width: 240px;
+    }
+    .right  { float: right;  margin: .4rem 0 .8rem 1.2rem; }
+    .left   { float: left;   margin: .4rem 1.2rem .8rem 0; }
+    .center { max-width: 68%; margin: 1.2rem auto; float: none; display: block; }
+    .tight  { max-width: 60%; } /* for the binary Lambda comparison */
+
     figure img {
       width: 100%;
+      height: auto;
+      display: block;
       border-radius: var(--radius);
       box-shadow: 0 0 8px rgba(0,0,0,0.5);
-      display: block;
     }
     figcaption {
       font-size: .92rem;
       color: var(--muted);
+      text-align: center;
       margin-top: .45rem;
       line-height: 1.4;
     }
+
+    /* Clearfix helper after mixed floats */
+    .clear { clear: both; }
 
     /* Lists */
     ul { margin: .6rem 0 0 1.2rem; }
@@ -111,22 +120,33 @@
     a:hover { color: #9dcfff; text-shadow: 0 0 5px rgba(88,166,255,0.5); }
 
     /* Footer */
-    footer {
-      text-align: center;
-      font-size: .85rem;
-      color: #7a8592;
-      padding: 2rem 1rem;
-      backdrop-filter: blur(4px);
-      max-width: 960px;
-      margin: 0 auto;   /* <-- aligns footer with main content */
-    }
+	/* Fix footer visual centering */
+	/* --- Ensure footer aligns perfectly with main content --- */
+	footer {
+	  width: 100%;
+	  display: flex;
+	  justify-content: center;
+	  padding: 2rem 1rem;
+	  backdrop-filter: blur(4px);
+	  color: #7a8592;
+	  font-size: 0.85rem;
+	  box-sizing: border-box;
+	  clear: both; /* make sure no floats leak into footer space */
+	}
+
+	footer p {
+	  max-width: 960px;   /* match your main content width */
+	  margin: 0 auto;
+	  text-align: center;
+	  width: 100%;
+	}
+
 
     /* Responsive */
     @media (max-width: 780px) {
-      header, main, footer { max-width: 100%; }
       section { padding: 1.4rem 1.2rem; }
-      figure { max-width: 100%; }
-      header h1 { font-size: 1.8rem; }
+      .fig-float { float: none; max-width: 100%; margin: .6rem 0 1rem 0; }
+      .center, .tight { max-width: 100%; }
     }
   </style>
 </head>
@@ -145,22 +165,129 @@
       <h2>Overview</h2>
       <p>
         This study models the structure of neutron stars with possible deconfined quark cores (hybrid stars) and
-        summarises their gravitational-wave–relevant properties for the Einstein Telescope context.
+        summarises their gravitational-wave–relevant properties for the Einstein Telescope context. A Python implementation
+        of a TOV solver (converted from C++) was used to generate mass–radius and tidal-deformability sequences for a set
+        of hybrid equations of state (EoS). Results are compared with constraints consistent with GW170817. The descriptions
+        below follow the figures and wording used in the project report and presentation.
       </p>
     </section>
 
-    <!-- Example content (truncated for brevity) -->
+    <!-- EoS & Phase Transition -->
     <section>
       <h2>Hybrid Equations of State & Phase Transition</h2>
-      <figure>
+
+      <figure class="fig-float right">
         <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical potential across hybrid EoS">
         <figcaption>
-          Pressure–chemical potential trends across the hybrid EoS set.
+          Pressure–chemical potential trends across the hybrid EoS set, showing where the first-order phase transition
+          turns on and how the quark-matter stiffness varies. These choices set the conditions under which a hybrid
+          branch can emerge.
         </figcaption>
       </figure>
-      <p>Hybrid EoS were constructed by joining hadronic and quark phases via a first-order transition...</p>
+
+      <p>
+        Hybrid EoS were constructed by joining hadronic and quark phases via a first-order transition. In the pressure–μ
+        view, the onset and relative stiffness of the quark sector are visible as distinct segments or kinks, matching the
+        presentation’s overview of how parameter choices shape the transition behaviour. The figure emphasises the part of
+        the parameter space used to feed the stellar-structure calculation rather than specific microphysical derivations.
+      </p>
+
+      <figure class="fig-float left">
+        <img src="images/Pressure_vs_Epsilon_Overall_FINAL.png" alt="Pressure vs energy density across hybrid EoS">
+        <figcaption>
+          Pressure–energy density curves indicating where the EoS moves from nuclear to quark matter. The slope change at
+          the transition governs the stability behaviour seen later in the mass–radius sequences.
+        </figcaption>
+      </figure>
+
+      <p>
+        In pressure–ε, the transition appears as a change in slope between branches. As summarised in the report, stronger
+        discontinuities map to unstable regions in the sequence of stellar models, which is the precondition for a separated,
+        re-stabilised hybrid branch (“twin-star” behaviour). The panel is used as the EoS input diagnostic for subsequent TOV
+        modelling rather than for extracting absolute thermodynamic parameters here.
+      </p>
+      <div class="clear"></div>
     </section>
 
+    <!-- TOV & M–R -->
+    <section>
+      <h2>TOV Modelling & Mass–Radius Sequences</h2>
+
+      <figure class="fig-float right">
+        <img src="images/MR_Mg=600_00_06.dat.png" alt="Example mass–radius sequence with a hybrid branch">
+        <figcaption>
+          Example mass–radius track produced by the Python TOV solver. An unstable segment separates the ordinary neutron-star
+          branch from a re-stabilised hybrid branch (twin-star behaviour), consistent with the phase-transition structure in
+          the EoS input.
+        </figcaption>
+      </figure>
+
+      <p>
+        The Python solver integrates the TOV equations for each EoS to generate full M–R sequences. The example shown reproduces
+        the expected pattern from the presentation: a stable branch, an intermediate unstable region associated with the transition,
+        and a re-stabilised hybrid branch at smaller radii. The emphasis is on the qualitative pattern (presence of the branch and
+        the separation) rather than absolute values here.
+      </p>
+
+      <figure class="center">
+        <img src="images/Mass_vs_Radius_FINAL.png" alt="Combined mass–radius relations across the model set">
+        <figcaption>
+          Combined mass–radius relations across the hybrid EoS sample. Trends illustrated in the presentation are retained: stiffer
+          behaviour corresponds to larger radii and higher maximum masses, while hybrid branches appear at smaller radii when the
+          phase transition is sufficiently strong.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Tidal deformability -->
+    <section>
+      <h2>Tidal Deformability</h2>
+
+      <figure class="fig-float left">
+        <img src="images/LM_Mg=600_00_06.dat.png" alt="Lambda vs Mass for a representative EoS">
+        <figcaption>
+          Λ(M) for a representative model. The presentation describes the rapid decrease of tidal deformability with mass and
+          a distinct change when the hybrid core forms, reflecting the compactness change across the sequence.
+        </figcaption>
+      </figure>
+
+      <p>
+        For gravitational-wave applications, the presentation highlights Λ(M) as the diagnostic linking compactness to waveform
+        phasing. The example panel shows the steep fall of Λ with increasing mass and the behaviour associated with entering the
+        hybrid-core regime. Trends are discussed qualitatively in line with the report text rather than used for numerical inference
+        on this page.
+      </p>
+
+      <figure class="center">
+        <img src="images/Lambda_vs_Mass_FINAL.png" alt="Combined Lambda vs Mass relations">
+        <figcaption>
+          Combined Λ–M curves across the model set. Lower Λ values correspond to more compact configurations, consistent with the
+          summary plots shown in the presentation.
+        </figcaption>
+      </figure>
+
+      <figure class="center tight">
+        <img src="images/Tidal Deformability Comparison.png" alt="Binary tidal deformabilities compared to observational contours">
+        <figcaption>
+          Binary tidal deformabilities (Λ₂ versus Λ₁) in comparison with observational confidence regions (as shown in the talk).
+          The plotted models fall within the indicated contours, in line with the discussion slides that validate the code output.
+        </figcaption>
+      </figure>
+
+    </section>
+
+    <!-- Summary -->
+    <section>
+      <h2>Summary</h2>
+      <p>
+        The figures above, drawn from the report and presentation, summarise the workflow: hybrid EoS construction with a first-order
+        transition, TOV-based M–R generation including hybrid branches, and tidal-deformability diagnostics used for gravitational-wave
+        comparisons. The qualitative behaviours match the presented results: the emergence of a re-stabilised hybrid branch under a
+        sufficiently strong transition and the associated decrease in Λ for more compact configurations.
+      </p>
+    </section>
+
+    <!-- Downloads -->
     <section>
       <h2>Downloads</h2>
       <ul>

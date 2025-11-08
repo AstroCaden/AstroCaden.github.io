@@ -118,15 +118,18 @@
     /* Footer */
     /* Footer */
     footer {
-      width: 100%;
       text-align: center;
       font-size: .85rem;
       color: #7a8592;
       padding: 2rem 1rem;
       backdrop-filter: blur(4px);
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+    }
+
+    /* Responsive */
+    @media (max-width: 780px) {
+      section { padding: 1.4rem 1.2rem; }
+      .fig-float { float: none; max-width: 100%; margin: .6rem 0 1rem 0; }
+      .center, .tight { max-width: 100%; }
     }
 
 

@@ -1,55 +1,203 @@
-<main>
-  <section>
-    <h2>About Me</h2>
-    <p><em>Exploring the physics of the Universe through code, models, and curiosity.</em></p>
-    <p>
-      MPhys Astrophysics student at the University of Liverpool with research interests in neutron stars, 
-      gravitational waves, and computational astrophysics. Experienced in theoretical modelling of compact 
-      objects through both collaborative and independent research projects. Proficient in Python and scientific 
-      computing tools for data analysis and simulation.
-    </p>
-  </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caden Phillips</title>
+  <style>
+    :root {
+      --text: #e6edf3;
+      --accent: #58a6ff;
+      --muted: #9ba3b0;
+      --radius: 12px;
+      --bg-overlay: rgba(10, 12, 17, 0.85);
+    }
 
-  <!-- Kraków Internship -->
-  <section>
-    <h2>IFJ PAN Internship – Kraków, Poland</h2>
-    <p>
-      During my 2024 research internship at the Institute of Nuclear Physics (IFJ PAN), I studied the internal 
-      structure of hybrid neutron stars within the Einstein Telescope detection range. I implemented and refined 
-      a Tolman–Oppenheimer–Volkoff solver, converting it from C++ to Python to analyse over 100 candidate equations 
-      of state, producing mass–radius relations and tidal deformability plots.
-    </p>
-    <p><a href="files/IFJ_PAN_Report.pdf" download>Download IFJ PAN Internship Report</a></p>
-  </section>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: url('images/M104 - Final.png') no-repeat center center fixed; 
+      background-size: cover;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
+    }
 
-  <!-- Teide Observatory -->
-  <section>
-    <h2>Teide Observatory Project – Tenerife, Spain</h2>
-    <p>
-      At the IAC’s Teide Observatory I collaborated on a project analysing data and imagery from small-telescope 
-      observations. The work focused on practical aspects of observation planning and presentation of results 
-      to a general audience.
-    </p>
-    <p><a href="files/Presentation.pdf" download>Download Project Presentation</a></p>
-  </section>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-  <!-- CV -->
-  <section>
-    <h2>Curriculum Vitae</h2>
-    <p>
-      My CV summarises my education, research experience, technical skills, and outreach work in astronomy. 
-      It includes details of coursework, programming experience, and current projects in astrophysics.
-    </p>
-    <p><a href="files/CV.pdf" download>Download My CV</a></p>
-  </section>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-overlay);
+      z-index: 0;
+    }
 
-  <!-- Contact -->
-  <section>
-    <h2>Contact</h2>
-    <div class="contact">
-      <p>Email: <a href="mailto:cadenphillips05@hotmail.com">cadenphillips05@hotmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">linkedin.com/in/caden-phillips-60909b295</a></p>
-      <p>GitHub: <a href="https://github.com/AstroCaden" target="_blank">github.com/AstroCaden</a></p>
-    </div>
-  </section>
-</main>
+    main, header, footer, section {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      backdrop-filter: blur(5px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.3rem;
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(88,166,255,0.4);
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background-color: rgba(20, 25, 32, 0.9);
+      padding: 1.5rem 1.8rem;
+      border-radius: var(--radius);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(88,166,255,0.3);
+      padding-bottom: 0.4rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #9dcfff;
+      text-shadow: 0 0 5px rgba(88,166,255,0.5);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #707b86;
+      padding: 2rem 1rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 0.2rem 0.6rem;
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      section {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Caden Phillips</h1>
+    <p>Astrophysics Student | Interested in Compact Objects and Computational Astrophysics</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p><em>Exploring the physics of the Universe through code, models, and curiosity.</em></p>
+      <p>
+        MPhys Astrophysics student at the University of Liverpool with research interests in neutron stars, gravitational
+        waves, and computational astrophysics. Experienced in theoretical modelling of compact objects through both
+        collaborative and independent research projects. Proficient in Python and scientific computing tools for data
+        analysis and simulation.
+      </p>
+    </section>
+
+    <!-- Research Section -->
+    <section>
+      <h2>Research</h2>
+
+      <h3>IFJ PAN – Kraków, Poland</h3>
+      <p>
+        Summer 2024 research internship at the Institute of Nuclear Physics (IFJ PAN). My work focused on studying the 
+        internal structure of hybrid neutron stars within the Einstein Telescope detection range. I implemented and refined 
+        a Tolman–Oppenheimer–Volkoff solver, converting it from C++ to Python to analyse over 100 candidate equations of 
+        state, producing mass–radius relations, pressure–density profiles, and tidal deformabilities.
+      </p>
+      <p><a href="files/IFJ_PAN_Report.pdf" download>Download IFJ PAN Internship Report</a></p>
+
+      <h3>Teide Observatory – Tenerife, Spain</h3>
+      <p>
+        Conducted observational and presentation-based research at the Teide Observatory in Tenerife. This project involved 
+        developing presentation material and data analysis for small-telescope observations, focusing on observational 
+        methods and outreach.
+      </p>
+      <p><a href="files/Presentation.pdf" download>Download Project Presentation</a></p>
+
+      <h3>Independent Research</h3>
+      <p>
+        Personal research focused on the theoretical and computational modelling of compact stars. I am currently expanding 
+        on my internship work to explore additional equations of state, focusing on neutron star crust transitions and 
+        incorporating updated nuclear models.
+      </p>
+    </section>
+
+    <!-- CV Section -->
+    <section>
+      <h2>Curriculum Vitae</h2>
+      <p>
+        My CV summarises my education, research experience, technical skills, and outreach work in astronomy. 
+        It includes coursework highlights, programming experience, and ongoing research projects.
+      </p>
+      <p><a href="files/CV.pdf" download>Download My CV</a></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>Email: <a href="mailto:cadenphillips05@hotmail.com">cadenphillips05@hotmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">linkedin.com/in/caden-phillips-60909b295</a></p>
+        <p>GitHub: <a href="https://github.com/AstroCaden" target="_blank">github.com/AstroCaden</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Caden Phillips. All rights reserved.</p>
+  </footer>
+</body>
+</html>

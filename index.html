@@ -3,161 +3,285 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caden Phillips</title>
+  <title>Caden Phillips | Astrophysics</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
+
     :root {
-      --text: #e6edf3;
-      --accent: #58a6ff;
-      --muted: #9ba3b0;
-      --radius: 12px;
-      --bg-overlay: rgba(10, 12, 17, 0.85);
+      --text: #e8eef6;
+      --muted: #a1a9b7;
+      --accent: #6da8ff;
+      --accent-glow: rgba(109,168,255,0.5);
+      --overlay: rgba(10, 12, 18, 0.85);
+      --radius: 20px;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-family: var(--font-body);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
       background: url('images/M104 - Final.png') no-repeat center center fixed;
       background-size: cover;
-      opacity: 0;
-      animation: fadeIn 1.5s ease-in forwards;
+      position: relative;
+      overflow-x: hidden;
     }
-
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: var(--bg-overlay);
+      inset: 0;
+      background: var(--overlay);
+      backdrop-filter: blur(6px);
       z-index: 0;
     }
 
-    main, header, footer, section { position: relative; z-index: 1; }
+    /* drifting magnetic particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: drift 40s linear infinite;
+    }
+
+    @keyframes drift {
+      from { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+      50%  { opacity: 0.5; }
+      to   { transform: translateY(-2000px) rotate(720deg); opacity: 0.2; }
+    }
+
+    main, header, footer, section { position: relative; z-index: 2; }
 
     header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      backdrop-filter: blur(5px);
+      padding: 6rem 1rem 4rem;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.3rem;
+      font-size: 3rem;
       color: var(--accent);
-      text-shadow: 0 0 10px rgba(88,166,255,0.4);
+      text-shadow: 0 0 25px var(--accent-glow);
+      letter-spacing: 1px;
+      position: relative;
     }
 
-    header p { margin-top:0.5rem; color:var(--muted); font-size:1rem; }
+    /* pulse under the name */
+    header h1::after {
+      content: "";
+      display: block;
+      margin: 0.8rem auto 0;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: pulse 2.4s ease-in-out infinite;
+      border-radius: 1px;
+    }
 
-    main { max-width:850px; margin:2.5rem auto; padding:0 1.5rem; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scaleX(0.6); }
+      50% { opacity: 1; transform: scaleX(1); }
+    }
+
+    header p {
+      color: var(--muted);
+      font-family: var(--font-code);
+      font-size: 1rem;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      height: 220px;
+      margin-top: -110px;
+      margin-left: -110px;
+      border: 1px dashed rgba(109,168,255,0.25);
+      border-radius: 50%;
+      animation: spin 40s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
 
     section {
-      margin-bottom: 2.5rem;
-      background-color: rgba(20, 25, 32, 0.9);
-      padding: 1.5rem 1.8rem;
+      background: radial-gradient(circle at 30% 30%, rgba(109,168,255,0.1) 0%, rgba(20,25,35,0.8) 70%);
+      backdrop-filter: blur(8px);
+      padding: 2rem 2.2rem;
       border-radius: var(--radius);
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5), 0 0 20px rgba(100,150,255,0.1);
+      transition: transform 0.8s cubic-bezier(0.3,1.5,0.3,1), box-shadow 0.4s ease;
+      animation: fadeUp 0.8s ease both;
     }
 
-    h2 { color:var(--accent); border-bottom:1px solid rgba(88,166,255,0.3); padding-bottom:0.4rem; }
+    /* gentle microgravity hover */
+    section:hover {
+      transform: translateY(-8px) rotateZ(0.5deg) scale(1.02);
+      box-shadow: 0 0 30px rgba(100,160,255,0.3);
+    }
 
-    h3 { color: #a8c6ff; margin-top:1.2rem; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-    a { color:var(--accent); text-decoration:none; }
-    a:hover { color:#9dcfff; text-shadow:0 0 5px rgba(88,166,255,0.5); }
+    h2 {
+      color: var(--accent);
+      font-family: var(--font-code);
+      font-size: 1.3rem;
+      border-bottom: 1px solid rgba(109,168,255,0.3);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      color: #a9c6ff;
+      margin-top: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s, text-shadow 0.3s;
+    }
+
+    a:hover {
+      color: #c8daff;
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    img.profile {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 0.3rem 0.7rem;
+      color: var(--accent);
+      font-family: var(--font-code);
+    }
 
     footer {
-      text-align:center;
-      font-size:0.85rem;
-      color:#707b86;
-      padding:2rem 1rem;
-      backdrop-filter:blur(5px);
+      text-align: center;
+      color: #7a8591;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.9rem;
     }
 
-    .contact a { display:inline-block; margin:0.2rem 0.6rem; color:var(--accent); }
-
-    @media (max-width:600px){
-      header h1{font-size:1.8rem;}
-      section{padding:1.2rem;}
+    @media (max-width: 700px) {
+      header::after { display: none; }
+      main { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
+  <!-- soft drifting particles -->
+  <div class="particles">
+    <div class="particle" style="top:90%; left:10%; animation-delay:0s;"></div>
+    <div class="particle" style="top:95%; left:60%; animation-delay:5s;"></div>
+    <div class="particle" style="top:85%; left:80%; animation-delay:10s;"></div>
+    <div class="particle" style="top:98%; left:40%; animation-delay:15s;"></div>
+    <div class="particle" style="top:92%; left:25%; animation-delay:25s;"></div>
+  </div>
+
   <header>
     <h1>Caden Phillips</h1>
-    <p>Astrophysics Student | Compact Objects & Computational Astrophysics</p>
+    <p>Astrophysics · Compact Objects · Computational Modelling</p>
   </header>
 
   <main>
     <section>
       <h2>About Me</h2>
-      <img src="images/profile.jpg" alt="Caden Phillips" 
-           style="width:130px; height:130px; border-radius:50%; object-fit:cover; 
-                  float:left; margin:0 1.2rem 0.5rem 0; box-shadow:0 0 10px rgba(0,0,0,0.4);">
+      <img src="images/profile.jpg" alt="Caden Phillips" class="profile">
       <p>
-        MPhys Astrophysics student at the University of Liverpool with research interests in neutron stars, 
-        gravitational waves, and computational astrophysics. Experienced in theoretical modelling of compact 
-        objects through both collaborative and independent research projects. Proficient in Python and scientific 
-        computing tools for data analysis and simulation.
+        I’m an MPhys Astrophysics student at the University of Liverpool researching neutron stars, 
+        gravitational-wave sources, and computational astrophysics.  
+        My work explores how matter behaves under extreme densities, connecting theory with observation 
+        through reproducible modelling.
       </p>
+      <p>
+        I’m particularly fascinated by neutron stars and the physics which occurs under their unique physical principles.
+      </p>
+      <p><a href="about.html">Read more about my background & interests →</a></p>
     </section>
 
-
+    <section>
       <h2>Research</h2>
 
       <h3><a href="krakow.html">IFJ PAN – Kraków, Poland</a></h3>
       <p>
-        Summer 2025 research internship supervised by Dr. David Álvarez Castillo.  
+        <em>Summer 2025 Research Internship under Dr. David Álvarez Castillo</em><br>
         Applied a Fisher-Information-Matrix framework to estimate tidal-deformability uncertainties in binary neutron-star systems.  
-        Developed and implemented a Tolman–Oppenheimer–Volkoff solver (converted from C++ to Python) to compute mass–radius and tidal-deformability relations for hybrid equations of state, 
-        comparing theoretical models with GW170817 observations.  
-        Presented results at the IFJ PAN Summer Internship Symposium 2025.
+        Converted a C++ Tolman–Oppenheimer–Volkoff solver into Python, computed mass–radius and tidal-deformability relations, 
+        and compared results to GW170817 data.
       </p>
-      <p><a href="files/Physical Inputs for Simulations of Gravitational Wave Emissions from Compact Stars within the Einstein Telescope Detection Range-3.pdf" download>Download IFJ PAN Internship Report</a></p>
-      <p><a href="files/Yaiza_Caden_Project_10.pptx" download>Download IFJ PAN Presentation</a></p>
+      <p>
+        <a href="files/Physical Inputs for Simulations of Gravitational Wave Emissions from Compact Stars within the Einstein Telescope Detection Range-3.pdf" download>Download Report</a> · 
+        <a href="files/Yaiza_Caden_Project_10.pptx" download>Presentation</a>
+      </p>
 
       <h3><a href="teide.html">Teide Observatory – Tenerife, Spain</a></h3>
       <p>
-        Week-long observational fieldwork under Dr. Daniel Harman at the IAC’s Teide Observatory.  
-        Conducted multi-band imaging using the 0.8 m IAC-80 and C14 Edge HD telescopes, constructed composite colour images, 
-        and produced Hertzsprung–Russell diagrams from photometric data.  
-        Developed presentation material summarising observational results.
+        Observational fieldwork at the IAC’s Teide Observatory.  
+        Conducted multi-band imaging and constructed HR diagrams to link stellar populations with theory.
       </p>
-    
 
       <h3><a href="independent.html">Independent Research – Rotating Neutron Star Modelling</a></h3>
       <p>
-        Ongoing self-directed follow-up study expanding on internship work to include rotational effects.  
-        Using the RNS and LORENE frameworks to model rapidly rotating neutron stars under various equations of state.  
-        Developed a C++ program to analyse how mass, radius, and spin influence relativistic stability limits.
+        Continuing independent work incorporating rotational effects using RNS and LORENE frameworks.  
+        Developed a C++ analysis pipeline to investigate how spin and compactness influence relativistic stability.
       </p>
     </section>
 
     <section>
       <h2>Curriculum Vitae</h2>
       <p>
-        My CV summarises my education, research experience, technical skills, and outreach work in astronomy. 
-        It includes details of coursework, programming experience, and current projects.
+        My CV outlines my academic background, research experience, and technical skills in astrophysics.
       </p>
-      <p><a href="files/CV-4.pdf" download>Download My CV</a></p>
+      <p><a href="files/CV-4.pdf" download>Download CV</a></p>
     </section>
 
     <section>
       <h2>Contact</h2>
       <div class="contact">
         <p>Email: <a href="mailto:cadenphillips05@hotmail.com">cadenphillips05@hotmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">linkedin.com/in/caden-phillips-60909b295</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">linkedin.com/in/caden-phillips</a></p>
         <p>GitHub: <a href="https://github.com/AstroCaden" target="_blank">github.com/AstroCaden</a></p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Caden Phillips. All rights reserved.</p>
+    <p>Caden Phillips - Website self-made.</p>
   </footer>
 </body>
 </html>

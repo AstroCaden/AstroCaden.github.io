@@ -5,160 +5,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Independent Research – Rotating Neutron Star Modelling</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
+
     :root {
-      --text: #e6edf3;
-      --accent: #58a6ff;
-      --muted: #9ba3b0;
-      --radius: 12px;
-      --bg-overlay: rgba(10, 12, 17, 0.85);
-      --card: rgba(20, 25, 32, 0.92);
+      --text: #e8eef6;
+      --muted: #a1a9b7;
+      --accent: #6da8ff;
+      --accent-glow: rgba(109,168,255,0.4);
+      --overlay: rgba(10, 12, 18, 0.85);
+      --card: rgba(20, 25, 32, 0.9);
+      --radius: 14px;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
     }
 
-    /* Base */
     body {
       margin: 0;
-      font-family: "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
+      font-family: var(--font-body);
       color: var(--text);
       line-height: 1.7;
       background: url("images/M104 - Final.png") no-repeat center center fixed;
       background-size: cover;
-      background-color: #0a0d12;
+      position: relative;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: var(--bg-overlay);
+      background: var(--overlay);
+      backdrop-filter: blur(6px);
       z-index: 0;
     }
 
-    header, main, footer { position: relative; z-index: 1; }
+    header, main, footer, section { position: relative; z-index: 1; }
 
     /* Header */
     header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 4rem 1rem 2rem;
       backdrop-filter: blur(6px);
-      max-width: 960px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     header h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 2.3rem;
       color: var(--accent);
-      text-shadow: 0 0 12px rgba(88,166,255,0.5);
+      margin: 0 0 .5rem 0;
+      font-size: 2.4rem;
+      text-shadow: 0 0 25px var(--accent-glow);
+      width: 100%;
     }
 
     header p {
-      margin: 0;
       color: var(--muted);
+      font-family: var(--font-code);
       font-size: 1rem;
+      max-width: 900px;
+      width: 100%;
       text-align: center;
     }
 
-    /* Layout */
+    /* Back link */
+    .back-link {
+      position: fixed;
+      top: 1.8rem;
+      left: 2rem;
+      background: rgba(109,168,255,0.1);
+      border: 1px solid rgba(109,168,255,0.4);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .back-link:hover {
+      background: rgba(109,168,255,0.25);
+      box-shadow: 0 0 10px var(--accent-glow);
+      color: #cde2ff;
+    }
+
+    /* Main */
     main {
-      max-width: 960px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
+      max-width: 1300px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.8rem;
     }
 
     section {
-      background-color: var(--card);
-      padding: 1.8rem;
+      background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.06), var(--card) 70%);
+      backdrop-filter: blur(8px);
+      padding: 2.2rem 3rem;
       border-radius: var(--radius);
-      box-shadow: 0 0 12px rgba(0,0,0,0.45);
-      margin-bottom: 2.5rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5), 0 0 20px rgba(100,150,255,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(100,160,255,0.25);
     }
 
     h2 {
       color: var(--accent);
-      border-bottom: 1px solid rgba(88,166,255,0.35);
-      padding-bottom: 0.4rem;
+      font-family: var(--font-code);
+      border-bottom: 1px solid rgba(109,168,255,0.3);
+      padding-bottom: .4rem;
       margin-top: 0;
+      margin-bottom: 1.2rem;
     }
 
-    p { margin: 0 0 1rem 0; text-align: justify; }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    p {
+      text-align: justify;
+      margin: 0 0 1rem 0;
     }
 
-    a:hover {
-      color: #9dcfff;
-      text-shadow: 0 0 5px rgba(88,166,255,0.5);
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #9dcfff; text-shadow: 0 0 6px var(--accent-glow); }
 
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    /* Figures (non-floating, responsive grid) */
     figure {
       margin: 1.5rem auto;
       text-align: center;
-      max-width: 700px;
+      max-width: 750px;
     }
 
     figure img {
       width: 100%;
       border-radius: var(--radius);
-      box-shadow: 0 0 8px rgba(0,0,0,0.5);
-      display: block;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    figure img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px rgba(109,168,255,0.3);
     }
 
     figcaption {
-      font-size: 0.92rem;
+      font-size: .9rem;
       color: var(--muted);
-      margin-top: 0.5rem;
+      margin-top: .5rem;
       line-height: 1.4;
     }
 
-    /* Footer (centered and aligned with main content) */
+    /* Footer */
     footer {
       width: 100%;
       display: flex;
       justify-content: center;
-      padding: 2rem 1rem;
-      backdrop-filter: blur(5px);
-      color: var(--muted);
-      font-size: 0.85rem;
+      align-items: center;
+      padding: 2rem 1rem 3rem;
+      backdrop-filter: blur(4px);
+      color: #7a8591;
+      font-size: 0.9rem;
       box-sizing: border-box;
-      clear: both;
+      text-align: center;
     }
 
     footer p {
-      max-width: 960px;
       margin: 0 auto;
       text-align: center;
+      max-width: 1300px;
       width: 100%;
     }
 
-    /* Responsive */
-    @media (max-width: 700px) {
-      header, main, footer { max-width: 100%; }
-      header h1 { font-size: 1.8rem; }
-      section { padding: 1.4rem; }
-      figure { max-width: 100%; }
+    @media (max-width: 850px) {
+      main { padding: 1.5rem; }
+      section { padding: 1.6rem; }
+      header h1 { font-size: 2rem; }
+      .back-link { position: absolute; top: 1rem; left: 1rem; }
     }
   </style>
 </head>
 
 <body>
+  <a href="index.html" class="back-link">← Return to Homepage</a>
+
   <header>
     <h1>Independent Research – Rotating Neutron Star Modelling</h1>
     <p>Caden Phillips | Independent Computational Astrophysics Project</p>
   </header>
 
   <main>
-    <a href="index.html" class="back-link">← Back to main site</a>
-
-    <!-- Overview -->
     <section>
       <h2>Overview</h2>
       <p>
@@ -170,7 +207,6 @@
       </p>
     </section>
 
-    <!-- Methods -->
     <section>
       <h2>Methods</h2>
       <p>
@@ -180,21 +216,19 @@
         output files.
       </p>
       <p>
-        A companion <strong>Python analysis pipeline</strong> was then implemented to parse, combine, and visualise the resulting
+        A companion <strong>Python analysis pipeline</strong> was implemented to parse, combine, and visualise the resulting
         datasets. Using <code>matplotlib</code> and <code>numpy</code>, the data were represented in both 2D and 3D parameter spaces
         to identify dependencies between quantities and highlight relativistic rotational trends.
       </p>
     </section>
 
-    <!-- Results -->
     <section>
       <h2>Results</h2>
 
       <figure>
         <img src="images/rns1.png" alt="2D relationships between RNS parameters">
         <figcaption>
-          2D Relationships Between RNS Parameters – multiple projections showing the dependencies between mass, radius, frequency,
-          and central density, coloured by frequency or density.
+          2D relationships between RNS parameters showing dependencies between mass, radius, frequency, and central density.
         </figcaption>
       </figure>
 
@@ -206,18 +240,17 @@
       <figure>
         <img src="images/rns2.png" alt="3D relationships between RNS parameters">
         <figcaption>
-          3D Relationship Between RNS Parameters – frequency versus radius versus mass, coloured by central density.
+          3D relationship between RNS parameters – frequency versus radius versus mass, coloured by central density.
         </figcaption>
       </figure>
 
       <p>
         The 3D projection highlights how increasing rotation frequency leads to larger equatorial radii and reduced central densities
-        at fixed mass — consistent with centrifugal flattening. The colour mapping by central density visually tracks this gradient,
-        reinforcing the trends identified in the 2D analysis.
+        at fixed mass — consistent with centrifugal flattening. The colour mapping visually tracks this gradient, reinforcing the trends
+        identified in the 2D analysis.
       </p>
     </section>
 
-    <!-- Summary -->
     <section>
       <h2>Summary</h2>
       <p>
@@ -230,7 +263,7 @@
   </main>
 
   <footer>
-    <p>© 2025 Caden Phillips. All rights reserved.</p>
+    <p>Caden Phillips 2025 — Rotating Neutron Star Modelling</p>
   </footer>
 </body>
 </html>

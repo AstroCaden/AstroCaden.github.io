@@ -2,210 +2,233 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Observatorio del Teide | Caden Phillips</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
+
     :root {
-      --text: #e6edf3;
-      --accent: #58a6ff;
-      --muted: #9ba3b0;
-      --radius: 12px;
-      --bg-overlay: rgba(10, 12, 17, 0.85);
+      --text:#e8eef6;
+      --muted:#a1a9b7;
+      --accent:#6da8ff;
+      --accent-glow:rgba(109,168,255,0.4);
+      --overlay:rgba(10,12,18,0.85);
+      --card:rgba(20,25,32,0.88);
+      --radius:14px;
+      --font-body:'Inter',sans-serif;
+      --font-code:'Fira Code',monospace;
     }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background: #0a0d12;
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--text);
+      line-height:1.7;
+      background:url("images/M104 - Final.png") no-repeat center center fixed;
+      background-size:cover;
+      position:relative;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:var(--overlay);
+      backdrop-filter:blur(6px);
+      z-index:0;
+    }
+    header,main,footer,section{position:relative;z-index:1;}
+
+    /* Header */
+    header{
+      text-align:center;
+      padding:4rem 1rem 2rem;
+      backdrop-filter:blur(6px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    header h1{
+      color:var(--accent);
+      margin:0 0 .5rem;
+      font-size:2.4rem;
+      text-shadow:0 0 25px var(--accent-glow);
+    }
+    header p{
+      color:var(--muted);
+      font-family:var(--font-code);
+      font-size:1rem;
+      max-width:900px;
+    }
+	
+	
+	footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem 3rem;
+  backdrop-filter: blur(4px);
+  color: #7a8591;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+footer p {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1300px; /* Matches main content width exactly */
+  text-align: center;
+}
+
+
+    /* Back link */
+    .back-link{
+      position:fixed;
+      top:1.8rem;left:2rem;
+      background:rgba(109,168,255,0.1);
+      border:1px solid rgba(109,168,255,0.4);
+      color:var(--accent);
+      border-radius:8px;
+      padding:.6rem 1rem;
+      font-family:var(--font-code);
+      font-size:.9rem;
+      text-decoration:none;
+      transition:.3s;
+      z-index:10;
+    }
+    .back-link:hover{background:rgba(109,168,255,0.25);box-shadow:0 0 10px var(--accent-glow);color:#cde2ff;}
+
+    /* Layout */
+    main{
+      max-width:1300px;
+      margin:0 auto 4rem;
+      padding:0 2.5rem;
+      display:flex;
+      flex-direction:column;
+      gap:2.8rem;
+    }
+    section{
+      background:radial-gradient(circle at 25% 25%,rgba(109,168,255,0.06),var(--card)70%);
+      backdrop-filter:blur(8px);
+      padding:2.2rem 3rem;
+      border-radius:var(--radius);
+      box-shadow:0 0 20px rgba(0,0,0,.5),0 0 20px rgba(100,150,255,.12);
+      transition:.3s;
+    }
+    section:hover{transform:translateY(-4px);box-shadow:0 0 25px rgba(100,160,255,.25);}
+    h2{color:var(--accent);font-family:var(--font-code);border-bottom:1px solid rgba(109,168,255,.3);padding-bottom:.4rem;margin-top:0;}
+    h3{color:var(--accent);font-size:1.2rem;margin-top:1.8rem;}
+    p{text-align:justify;margin:0 0 1rem;}
+    ul{margin:.6rem 0 0 1.2rem;}
+    li{margin:.35rem 0;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{color:#9dcfff;text-shadow:0 0 6px var(--accent-glow);}
+
+    /* Tables */
+    table{
+      width:100%;border-collapse:collapse;margin:1.2rem 0;
+      background:rgba(10,12,17,.3);
+      border-radius:var(--radius);overflow:hidden;
+      box-shadow:0 0 10px rgba(0,0,0,.4);
+    }
+    th,td{border:1px solid rgba(255,255,255,.12);padding:.6rem .8rem;text-align:center;}
+    th{background:rgba(109,168,255,.15);color:var(--accent);font-family:var(--font-code);}
+    caption{text-align:left;color:var(--muted);font-style:italic;margin-bottom:.3rem;}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:1.5rem;}
+    .gallery-item{text-align:center;cursor:pointer;}
+    .gallery-item img{width:100%;border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.5);transition:.3s;}
+    .gallery-item img:hover{transform:scale(1.03);box-shadow:0 0 14px rgba(109,168,255,.3);}
+    .gallery-item p{margin-top:.6rem;color:var(--muted);font-size:.9rem;}
+
+    /* Lightbox */
+    .lightbox{
+      display:none;
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.85);
+      justify-content:center;align-items:center;
+      z-index:9999;backdrop-filter:blur(6px);
+      animation:fadeIn .3s ease forwards;
+    }
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    .lightbox img{max-width:90%;max-height:90%;border-radius:var(--radius);box-shadow:0 0 25px rgba(109,168,255,.4);}
+    .lightbox:target{display:flex;}
+    .lightbox-close{
+      position:absolute;top:30px;right:40px;
+      color:#fff;font-size:2rem;text-decoration:none;
+      font-family:var(--font-code);
+      text-shadow:0 0 8px var(--accent-glow);
     }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      background: rgba(15, 20, 30, 0.9);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.3rem;
-      color: var(--accent);
-    }
-
-    header p {
-      margin-top: 0.5rem;
-      color: var(--muted);
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      background-color: rgba(20, 25, 32, 0.85);
-      padding: 1.8rem;
-      border-radius: var(--radius);
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      margin-bottom: 2.5rem;
-    }
-
-    h2 {
-      color: var(--accent);
-      border-bottom: 1px solid rgba(88,166,255,0.3);
-      padding-bottom: 0.4rem;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    th, td {
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 0.5rem 0.8rem;
-      text-align: center;
-    }
-
-    th {
-      background: rgba(88,166,255,0.2);
-      color: var(--accent);
-    }
-
-    caption {
-      text-align: left;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 0.3rem;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .gallery-item {
-      text-align: center;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-
-    .gallery-item p {
-      margin-top: 0.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      padding: 2rem 1rem;
-      backdrop-filter: blur(5px);
-    }
+    .analysis-img{width:100%;max-width:650px;display:block;margin:1rem auto;border-radius:var(--radius);box-shadow:0 0 12px rgba(0,0,0,.6);}
+    footer{display:flex;justify-content:center;align-items:center;padding:2rem 1rem 3rem;backdrop-filter:blur(4px);color:#7a8591;font-size:.9rem;text-align:center;}
+    footer p{margin:0 auto;max-width:1300px;width:100%;}
+    @media(max-width:850px){main{padding:1.5rem;}section{padding:1.6rem;}header h1{font-size:2rem;}.back-link{top:1rem;left:1rem;}}
   </style>
 </head>
 
 <body>
-	<header>
-	  <h1>Observatorio del Teide – Imaging & Photometric Analysis</h1>
-	  <p>Caden Phillips | Instituto de Astrofísica de Canarias, Tenerife</p>
-	  <nav style="margin-top: 1rem;">
-	  </nav>
-	</header>
+  <a href="index.html" class="back-link">← Return to Homepage</a>
 
+  <header>
+    <h1>Observatorio del Teide – Imaging & Photometric Analysis</h1>
+    <p>Caden Phillips | Instituto de Astrofísica de Canarias, Tenerife</p>
+  </header>
 
   <main>
-	<a href="index.html" style="color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 1.5rem;">← Back to main site</a>
-
     <section>
       <h2>Summary</h2>
-      <p>
-        This project was carried out at the Observatorio del Teide, Tenerife, and focused on observational astrophysics using both
-        the Celestron C14 Edge HD and IAC-80 telescopes. Over seven nights, I performed imaging of a range of deep-sky objects including galaxies,
-        open clusters, planetary and diffuse nebulae. The project developed my understanding of photometry, filter use, and data reduction,
-        culminating in the production of colour–magnitude and Hertzsprung–Russell diagrams from cluster observations.
-      </p>
+      <p>This project was carried out at the Observatorio del Teide, Tenerife, and focused on observational astrophysics using both
+        the Celestron C14 Edge HD and IAC-80 telescopes. Over seven nights, I performed imaging of galaxies, open clusters, and nebulae.
+        The project developed my understanding of photometry, filter use, and data reduction, culminating in the production of colour–magnitude
+        and Hertzsprung–Russell diagrams from cluster observations.</p>
     </section>
 
-	<section>
-	  <h2>Equipment Used</h2>
-	  <ul>
-		<li><strong>Celestron C14 Edge HD telescope</strong></li>
-		<li>Luminos 23mm 82° eyepiece</li>
-		<li>QHY-163M/C camera</li>
-		<li>0.7× reducer</li>
-		<li><strong>Software:</strong> MaxIm DL, CWPI, TLImage, LTImage, SAOImage</li>
-		<li><strong>IAC-80 Telescope</strong> — Focal Length: 9020 mm, Aperture: 820 mm, Resolution: 4096×4112 px, Pixel Size: 15×15 µm (FOV ≈ 0.39° × 0.39°)</li>
-	  </ul>
-	</section>
-
+    <section>
+      <h2>Equipment Used</h2>
+      <ul>
+        <li><strong>Celestron C14 Edge HD telescope</strong></li>
+        <li>Luminos 23 mm 82° eyepiece</li>
+        <li>QHY-163 M/C camera</li>
+        <li>0.7× reducer</li>
+        <li><strong>Software:</strong> MaxIm DL, CWPI, TLImage, LTImage, SAOImage</li>
+        <li><strong>IAC-80 Telescope</strong> — Focal Length 9020 mm | Aperture 820 mm | Resolution 4096×4112 px | Pixel 15×15 µm (FOV ≈ 0.39°×0.39°)</li>
+      </ul>
+    </section>
 
     <section>
       <h2>Observations</h2>
       <table>
         <caption>Observation Log (All Nights)</caption>
         <thead>
-          <tr>
-            <th>Night</th>
-            <th>Object</th>
-            <th>Object Type</th>
-            <th>RA</th>
-            <th>Dec</th>
-            <th>Filters</th>
-            <th>Time/s</th>
-            <th>Repeats</th>
-            <th>Telescope</th>
-            <th>Time of Observation (Approx.) / WEST</th>
-          </tr>
+          <tr><th>Night</th><th>Object</th><th>Type</th><th>RA</th><th>Dec</th><th>Filters</th><th>Time / s</th><th>Repeats</th><th>Telescope</th><th>Approx. Time / WEST</th></tr>
         </thead>
         <tbody>
-          <tr><td>2</td><td>M13</td><td>Globular Cluster</td><td>16h 41m 41.44s</td><td>+36° 27′ 26.9″</td><td>B,V,I,R</td><td>180,90,60,180</td><td>5</td><td>Celestron</td><td>01:00</td></tr>
-          <tr><td>3</td><td>M20</td><td>Open Cluster, Emission, Reflection and Dark Nebula</td><td>18h 02m 23s</td><td>−23° 01′ 48″</td><td>B,O III,H alpha</td><td>40,60,60</td><td>3</td><td>Celestron</td><td>02:30</td></tr>
-          <tr><td>4</td><td>Abell 39</td><td>Planetary Nebula</td><td>16h 27m 33.72s</td><td>+27° 54′ 33.47″</td><td>V,O III</td><td>300,300</td><td>3</td><td>IAC-80</td><td>01:20</td></tr>
-          <tr><td>4</td><td>M7</td><td>Open Cluster</td><td>17h 53m 51.2s</td><td>−34° 37′ 34″</td><td>B,V,I,R</td><td>8,8,8,20</td><td>5</td><td>Celestron</td><td>03:00</td></tr>
-          <tr><td>4</td><td>NGC 6960</td><td>Diffuse Nebula</td><td>20h 45m 38s</td><td>+30° 42′ 30″</td><td>H alpha,O III,V,R</td><td>200,200,200,200</td><td>3</td><td>IAC-80</td><td>05:00</td></tr>
-          <tr><td>5</td><td>M104</td><td>Galaxy</td><td>12h 39m 59.43s</td><td>−11° 37′ 23.12″</td><td>B,V,R</td><td>180,180,180</td><td>5</td><td>Celestron</td><td>22:30</td></tr>
-          <tr><td>6</td><td>M63</td><td>Galaxy</td><td>13h 15m 49.27s</td><td>+42° 01′ 45.73″</td><td>B,V,R</td><td>180,180,180</td><td>5</td><td>Celestron</td><td>00:30</td></tr>
-          <tr><td>6</td><td>NGC 7331</td><td>Galaxy</td><td>22h 37m 04.06s</td><td>+34° 24′ 56.72″</td><td>B,V,R</td><td>60,60,60</td><td>4(5)*</td><td>Celestron</td><td>01:30</td></tr>
+          <tr><td>2</td><td>M13</td><td>Globular Cluster</td><td>16h41m41.4s</td><td>+36°27′27″</td><td>B,V,I,R</td><td>180,90,60,180</td><td>5</td><td>Celestron</td><td>01:00</td></tr>
+          <tr><td>3</td><td>M20</td><td>Trifid Nebula</td><td>18h02m23s</td><td>−23°01′48″</td><td>B,O III,H α</td><td>40,60,60</td><td>3</td><td>Celestron</td><td>02:30</td></tr>
+          <tr><td>4</td><td>Abell 39</td><td>Planetary Nebula</td><td>16h27m33.7s</td><td>+27°54′33″</td><td>V,O III</td><td>300,300</td><td>3</td><td>IAC-80</td><td>01:20</td></tr>
+          <tr><td>4</td><td>M7</td><td>Open Cluster</td><td>17h53m51s</td><td>−34°37′34″</td><td>B,V,I,R</td><td>8,8,8,20</td><td>5</td><td>Celestron</td><td>03:00</td></tr>
+          <tr><td>4</td><td>NGC 6960</td><td>Diffuse Nebula</td><td>20h45m38s</td><td>+30°42′30″</td><td>H α,O III,V,R</td><td>200,200,200,200</td><td>3</td><td>IAC-80</td><td>05:00</td></tr>
+          <tr><td>5</td><td>M104</td><td>Galaxy</td><td>12h39m59s</td><td>−11°37′23″</td><td>B,V,R</td><td>180,180,180</td><td>5</td><td>Celestron</td><td>22:30</td></tr>
+          <tr><td>6</td><td>M63</td><td>Galaxy</td><td>13h15m49s</td><td>+42°01′46″</td><td>B,V,R</td><td>180,180,180</td><td>5</td><td>Celestron</td><td>00:30</td></tr>
+          <tr><td>6</td><td>NGC 7331</td><td>Galaxy</td><td>22h37m04s</td><td>+34°24′57″</td><td>B,V,R</td><td>60,60,60</td><td>4 (5)*</td><td>Celestron</td><td>01:30</td></tr>
         </tbody>
       </table>
-      <p><em>*Intended to do 5 but tracking failed after 4</em></p>
+      <p><em>* Intended to do 5 but tracking failed after 4</em></p>
     </section>
 
     <section>
       <h2>Filter Characteristics</h2>
       <table>
-        <thead>
-          <tr><th>Filter</th><th>Maximum Wavelength / nm</th><th>Minimum Wavelength / nm</th><th>Centre Wavelength / nm</th></tr>
-        </thead>
+        <thead><tr><th>Filter</th><th>Max λ / nm</th><th>Min λ / nm</th><th>Centre λ / nm</th></tr></thead>
         <tbody>
           <tr><td>B</td><td>440</td><td>500</td><td>445</td></tr>
           <tr><td>V</td><td>509</td><td>551</td><td>—</td></tr>
           <tr><td>R</td><td>590</td><td>810</td><td>658</td></tr>
           <tr><td>I</td><td>810</td><td>1000</td><td>806</td></tr>
-          <tr><td>H alpha</td><td>651</td><td>661</td><td>656</td></tr>
+          <tr><td>H α</td><td>651</td><td>661</td><td>656</td></tr>
           <tr><td>O III</td><td>495</td><td>501</td><td>500</td></tr>
           <tr><td>L</td><td>400</td><td>700</td><td>Broad</td></tr>
         </tbody>
@@ -215,36 +238,41 @@
     <section>
       <h2>Image Gallery</h2>
       <div class="gallery">
-        <div class="gallery-item"><img src="images/M13.png" alt="M13"><p>M13 – Globular Cluster</p></div>
-        <div class="gallery-item"><img src="images/M20.png" alt="M20"><p>M20 – Trifid Nebula</p></div>
-        <div class="gallery-item"><img src="images/Abell39.png" alt="Abell 39"><p>Abell 39 – Planetary Nebula</p></div>
-        <div class="gallery-item"><img src="images/M7.png" alt="M7"><p>M7 – Open Cluster</p></div>
-        <div class="gallery-item"><img src="images/NGC6960.png" alt="NGC 6960"><p>NGC 6960 – Diffuse Nebula</p></div>
-        <div class="gallery-item"><img src="images/M104.png" alt="M104"><p>M104 – Sombrero Galaxy</p></div>
+        <a href="#img1" class="gallery-item"><img src="images/M13.png" alt="M13"><p>M13 – Globular Cluster</p></a>
+        <a href="#img2" class="gallery-item"><img src="images/M20.png" alt="M20"><p>M20 – Trifid Nebula</p></a>
+        <a href="#img3" class="gallery-item"><img src="images/Abell39.png" alt="Abell 39"><p>Abell 39 – Planetary Nebula</p></a>
+        <a href="#img4" class="gallery-item"><img src="images/M7.png" alt="M7"><p>M7 – Open Cluster</p></a>
+        <a href="#img5" class="gallery-item"><img src="images/NGC6960.png" alt="NGC 6960"><p>NGC 6960 – Diffuse Nebula</p></a>
+        <a href="#img6" class="gallery-item"><img src="images/M104.png" alt="M104"><p>M104 – Sombrero Galaxy</p></a>
       </div>
     </section>
 
     <section>
       <h2>Analysis</h2>
-
       <h3>Magnitude Distribution</h3>
-      <img src="images/MD.png" alt="Magnitude Distribution" style="width:100%;max-width:600px;display:block;margin:auto;border-radius:12px;">
-      <p>The magnitude distribution graph shows the range of stellar magnitudes obtained from photometric analysis of M13,
-        providing insight into the completeness and depth of the dataset.</p>
+      <img src="images/MD.png" alt="Magnitude Distribution" class="analysis-img">
+      <p>The magnitude distribution graph shows the range of stellar magnitudes obtained from photometric analysis of M13, providing insight into the completeness and depth of the dataset.</p>
 
       <h3>B–V vs V–R Plot</h3>
-      <img src="images/BVVR.png" alt="B–V vs V–R Plot" style="width:100%;max-width:600px;display:block;margin:auto;border-radius:12px;">
+      <img src="images/BVVR.png" alt="B–V vs V–R Plot" class="analysis-img">
       <p>The colour–colour diagram (B–V vs V–R) displays the relationship between filter bands, illustrating stellar temperature variation within the field.</p>
 
       <h3>Hertzsprung–Russell Diagram</h3>
-      <img src="images/HR.png" alt="HR Diagram" style="width:100%;max-width:600px;display:block;margin:auto;border-radius:12px;">
-      <p>The Hertzsprung–Russell diagram produced from the same photometric data shows the clear main sequence, along with
-        evolved stars within the cluster, aligning with expected theoretical distributions.</p>
+      <img src="images/HR.png" alt="HR Diagram" class="analysis-img">
+      <p>The Hertzsprung–Russell diagram produced from the same photometric data shows the clear main sequence and evolved stars within the cluster, aligning with expected theoretical distributions.</p>
     </section>
   </main>
 
+  <!-- Lightbox overlays -->
+  <div id="img1" class="lightbox"><a href="#" class="lightbox-close">×</a><img src="images/M13.png" alt="M13"></div>
+  <div id="img2" class="lightbox"><a href="#" class="lightbox-close">×</a><img src="images/M20.png" alt="M20"></div>
+  <div id="img3" class="lightbox"><a href="#" class="lightbox-close">×</a><img src="images/Abell39.png" alt="Abell 39"></div>
+  <div id="img4" class="lightbox"><a href="#" class="lightbox-close">×</a><img src="images/M7.png" alt="M7"></div>
+  <div id="img5" class="lightbox"><a href="#" class="lightbox-close">×</a><img src="images/NGC6960.png" alt="NGC 6960"></div>
+  <div id="img6" class="lightbox"><a href="#" class="lightbox-close">×</a><img src="images/M104.png" alt="M104"></div>
+
   <footer>
-    <p>© 2025 Caden Phillips. All rights reserved.</p>
+    <p>Caden Phillips 2025 — Observatorio del Teide Research</p>
   </footer>
 </body>
 </html>

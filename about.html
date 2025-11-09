@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Caden Phillips</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
+
+    :root {
+      --text: #e8eef6;
+      --muted: #a1a9b7;
+      --accent: #6da8ff;
+      --accent-glow: rgba(109,168,255,0.4);
+      --overlay: rgba(10, 12, 18, 0.85);
+      --card: rgba(20, 25, 32, 0.85);
+      --radius: 16px;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      line-height: 1.7;
+      background: url('images/M104 - Final.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    header, main, footer, section { position: relative; z-index: 1; }
+
+    /* Return button */
+    .return-home {
+      position: fixed;
+      top: 1.8rem;
+      left: 2rem;
+      background: rgba(109,168,255,0.1);
+      border: 1px solid rgba(109,168,255,0.4);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .return-home:hover {
+      background: rgba(109,168,255,0.25);
+      box-shadow: 0 0 10px var(--accent-glow);
+      color: #cde2ff;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 5rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      color: var(--accent);
+      text-shadow: 0 0 25px var(--accent-glow);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-family: var(--font-code);
+      font-size: 1rem;
+    }
+
+    /* Layout grid */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    section {
+      background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.08), var(--card) 70%);
+      backdrop-filter: blur(8px);
+      padding: 2rem 2.2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 0 14px rgba(0,0,0,0.5), 0 0 18px rgba(100,150,255,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 22px rgba(100,160,255,0.25);
+    }
+
+    /* About header layout */
+    .about-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .about-header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .about-header p {
+      flex: 1;
+      margin: 0;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-family: var(--font-code);
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(109,168,255,0.3);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    ul { list-style: none; padding-left: 0; margin: 0; }
+    ul li { margin-bottom: 0.7rem; position: relative; padding-left: 1.2rem; }
+    ul li::before { content: "•"; position: absolute; left: 0; top: 0.1rem; color: var(--accent); }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s, text-shadow 0.3s; }
+    a:hover { color: #c8daff; text-shadow: 0 0 8px var(--accent-glow); }
+
+    /* Contact Section (smaller and full width) */
+	/* Contact Section (extra compact, no wasted space) */
+	.contact {
+	  grid-column: 1 / -1;
+	  text-align: center;
+	  padding: 0.3rem 0.8rem 0.5rem; /* tightened vertical padding */
+	  background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.1), var(--card) 70%);
+	  backdrop-filter: blur(8px);
+	  border-radius: var(--radius);
+	  box-shadow: 0 0 12px rgba(0,0,0,0.4), 0 0 15px rgba(100,150,255,0.1);
+	}
+
+	.contact h2 {
+	  margin-bottom: 0.4rem; /* reduce gap below heading */
+	  font-size: 1.1rem;
+	}
+
+	.contact ul {
+	  display: flex;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 1.2rem;
+	  padding: 0;
+	  margin: 0;
+	}
+
+	.contact li {
+	  display: inline;
+	}
+
+	.contact a {
+	  font-family: var(--font-code);
+	  font-size: 0.95rem;
+	}
+
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #7a8591;
+      padding: 2.5rem 1rem 3rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 950px) {
+      main {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        padding: 1.5rem;
+      }
+
+      .contact ul {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="return-home">← Return to Homepage</a>
+
+  <header>
+    <h1>About Me</h1>
+    <p>Astrophysics · Neutron Stars · Computational Modelling</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <div class="about-header">
+        <img src="images/profile.jpg" alt="Caden Phillips">
+        <p>
+          I’m an MPhys Astrophysics student at the University of Liverpool, where my interests focus on 
+          neutron stars, gravitational waves, and computational astrophysics. I enjoy combining physics, 
+          mathematics, and programming to model physical processes and interpret astronomical data.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Programming:</strong> Python, C++, Bash, MATLAB, LaTeX</li>
+        <li><strong>Scientific Libraries:</strong> NumPy, SciPy, Astropy, matplotlib, pandas, ROOT</li>
+        <li><strong>Modelling Frameworks:</strong> LORENE, RNS</li>
+        <li><strong>Other:</strong> Data analysis, numerical methods, scientific visualisation</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>University of Liverpool</strong> — MPhys Astrophysics (Expected 2027)<br>
+          Modules include Advanced Observational Astrophysics, Physics of Galaxies, Relativity and Cosmology.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Research Experience</h2>
+      <ul>
+        <li><strong>IFJ PAN, Kraków (2025):</strong> Studied gravitational-wave signals from compact stars, 
+          developing hybrid EoS models under Dr. David Álvarez Castillo.</li>
+        <li><strong>Teide Observatory, Tenerife (2025):</strong> Conducted multi-band photometry and 
+          produced HR diagrams from observational data using the IAC-80 telescope.</li>
+        <li><strong>Independent Project:</strong> Modelling rotational effects in neutron stars using RNS and LORENE.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Research Focus</h2>
+      <p>
+        My current research focuses on the internal structure of neutron stars and their observational signatures 
+        through gravitational waves. I’m especially interested in how the equation of state influences mass–radius 
+        relations and tidal deformability, and how these can be constrained by multi-messenger data.
+      </p>
+    </section>
+
+    <section>
+      <h2>Interests & Involvement</h2>
+      <ul>
+        <li>Associate Member, Institute of Physics (IOP)</li>
+        <li>Astrophotography and image processing</li>
+        <li>Open-source and reproducible research</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:cadenphillips05@hotmail.com">cadenphillips05@hotmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/AstroCaden" target="_blank">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Caden Phillips 2025 — About Me.</p>
+  </footer>
+</body>
+</html>

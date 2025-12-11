@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Independent Research – Rotating Neutron Star Modelling</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
 
@@ -38,9 +39,11 @@
       z-index: 0;
     }
 
-    header, main, footer, section { position: relative; z-index: 1; }
+    header, main, footer, section {
+      position: relative;
+      z-index: 1;
+    }
 
-    /* Header */
     header {
       text-align: center;
       padding: 4rem 1rem 2rem;
@@ -68,7 +71,6 @@
       text-align: center;
     }
 
-    /* Back link */
     .back-link {
       position: fixed;
       top: 1.8rem;
@@ -91,28 +93,25 @@
       color: #cde2ff;
     }
 
-    /* Main */
     main {
       max-width: 1300px;
       margin: 0 auto 4rem;
       padding: 0 2.5rem;
       display: flex;
       flex-direction: column;
-      gap: 2.8rem;
     }
 
-    section {
+    .project-box {
       background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.06), var(--card) 70%);
       backdrop-filter: blur(8px);
       padding: 2.2rem 3rem;
       border-radius: var(--radius);
       box-shadow: 0 0 20px rgba(0,0,0,0.5), 0 0 20px rgba(100,150,255,0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 2rem;
     }
 
-    section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(100,160,255,0.25);
+    section {
+      margin-bottom: 2rem;
     }
 
     h2 {
@@ -128,9 +127,6 @@
       text-align: justify;
       margin: 0 0 1rem 0;
     }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: #9dcfff; text-shadow: 0 0 6px var(--accent-glow); }
 
     figure {
       margin: 1.5rem auto;
@@ -157,7 +153,6 @@
       line-height: 1.4;
     }
 
-    /* Footer */
     footer {
       width: 100%;
       display: flex;
@@ -167,20 +162,12 @@
       backdrop-filter: blur(4px);
       color: #7a8591;
       font-size: 0.9rem;
-      box-sizing: border-box;
       text-align: center;
-    }
-
-    footer p {
-      margin: 0 auto;
-      text-align: center;
-      max-width: 1300px;
-      width: 100%;
     }
 
     @media (max-width: 850px) {
       main { padding: 1.5rem; }
-      section { padding: 1.6rem; }
+      .project-box { padding: 1.6rem; }
       header h1 { font-size: 2rem; }
       .back-link { position: absolute; top: 1rem; left: 1rem; }
     }
@@ -188,82 +175,139 @@
 </head>
 
 <body>
+
   <a href="index.html" class="back-link">← Return to Homepage</a>
 
   <header>
-    <h1>Independent Research – Rotating Neutron Star Modelling</h1>
-    <p>Caden Phillips | Independent Computational Astrophysics Project</p>
+    <h1>Independent Research</h1>
+    <p>Caden Phillips | Personal Projects</p>
   </header>
 
   <main>
-    <section>
-      <h2>Overview</h2>
-      <p>
-        This independent research investigates rotating neutron stars using two numerical relativity frameworks:
-        <strong>RNS</strong> and <strong>LORENE</strong>. Both solvers enable the calculation of rapidly rotating,
-        relativistic stellar equilibria for specified central densities and angular velocities.
-        The aim was to explore correlations between <em>mass</em>, <em>radius</em>, <em>frequency</em>, and
-        <em>central density</em> using self-written code that automates model generation and data visualisation.
-      </p>
-    </section>
 
-    <section>
-      <h2>Methods</h2>
-      <p>
-        A suite of <strong>C++ routines</strong> was developed to perform parameter sweeps over rotation frequency and central density,
-        automating the generation of stellar configurations via RNS and LORENE. These scripts executed each solver, extracted key
-        output variables (mass, equatorial and polar radius, central density, moment of inertia), and stored results in structured
-        output files.
-      </p>
-      <p>
-        A companion <strong>Python analysis pipeline</strong> was implemented to parse, combine, and visualise the resulting
-        datasets. Using <code>matplotlib</code> and <code>numpy</code>, the data were represented in both 2D and 3D parameter spaces
-        to identify dependencies between quantities and highlight relativistic rotational trends.
-      </p>
-    </section>
+    <div class="project-box">
+	  <h1> Rotating Neutron Star Modelling </h1>
+      <section>
+        <h2>Overview</h2>
+        <p>
 
-    <section>
-      <h2>Results</h2>
+		  I began this independent reseach project following my internship at the IFJ PAN in Krakow. It aims to investigate
+		  rotating neutron stars using two numerical relativity frameworks: RNS and LORENE, varying the properties, such
+		  as: mass, radius, frequency, and central density and analysing the results.
+        </p>
+      </section>
 
-      <figure>
-        <img src="images/rns1.png" alt="2D relationships between RNS parameters">
-        <figcaption>
-          2D relationships between RNS parameters showing dependencies between mass, radius, frequency, and central density.
-        </figcaption>
-      </figure>
+      <section>
+        <h2>Methods</h2>
+        <p>
 
-      <p>
-        The six-panel figure summarises 2D parameter relationships extracted from the RNS output. Clear correlations appear between
-        mass, radius, and central density, demonstrating the expected relativistic behaviour of compact stars under rapid rotation.
-      </p>
+		  
+		  Creating a C++ program that varies the mass and radius of the neutron star, between set limits, using a predetermined equation 
+		  of state (EoS), in both LORENE and RNS and exporting each result to a seperate data file. A python program can then be developed 
+		  and used to take this modelled data and visualise this using both 2 dimensional and 3 dimensinoal plots.
+        </p>
 
-      <figure>
-        <img src="images/rns2.png" alt="3D relationships between RNS parameters">
-        <figcaption>
-          3D relationship between RNS parameters – frequency versus radius versus mass, coloured by central density.
-        </figcaption>
-      </figure>
+      </section>
 
-      <p>
-        The 3D projection highlights how increasing rotation frequency leads to larger equatorial radii and reduced central densities
-        at fixed mass — consistent with centrifugal flattening. The colour mapping visually tracks this gradient, reinforcing the trends
-        identified in the 2D analysis.
-      </p>
-    </section>
+      <section>
+        <h2>Results</h2>
 
-    <section>
-      <h2>Summary</h2>
-      <p>
-        This project demonstrates the workflow for automating relativistic stellar modelling using RNS and LORENE, combining compiled
-        simulation pipelines in C++ with data post-processing in Python. The output visualisations provide an effective framework for
-        exploring how stellar rotation influences equilibrium structure, offering a foundation for future work incorporating equation-of-state
-        variation or gravitational-wave–relevant parameters.
-      </p>
-    </section>
+        <figure>
+          <img src="images/rns1.png" alt="2D relationships between RNS parameters">
+          <figcaption>
+            2D relationships between RNS parameters showing dependencies between mass, radius, frequency, and central density.
+          </figcaption>
+        </figure>
+
+        <p>
+          The six-panel figure summarises 2D parameter relationships extracted from the RNS output. Clear correlations
+          appear between mass, radius, and central density, demonstrating the expected relativistic behaviour of compact
+          stars under rapid rotation.
+        </p>
+
+        <figure>
+          <img src="images/rns2.png" alt="3D relationships between RNS parameters">
+          <figcaption>
+            3D relationship between RNS parameters – frequency versus radius versus mass, coloured by central density.
+          </figcaption>
+        </figure>
+
+        <p>
+          The 3D projection highlights how increasing rotation frequency leads to larger equatorial radii and reduced
+          central densities at fixed mass, consistent with centrifugal flattening.
+        </p>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+          This project demonstrates a fully automated workflow for relativistic stellar modelling using RNS and LORENE,
+          combining compiled simulation pipelines in C++ with Python-based post-processing. The resulting visualisations
+          provide an effective framework for exploring how stellar rotation influences equilibrium structure and form a
+          foundation for future work including equation of state variations and gravitational-wave–relevant properties.
+        </p>
+      </section>
+
+    </div>
+
+
+
+
+
+
+
+    <div class="project-box">
+	  <h1> Using HEASoft to analyse archived NICER data of tMSPs </h1>
+      <section>
+        <h2>Overview</h2>
+        <p>
+
+
+
+
+        </p>
+      </section>
+
+      <section>
+        <h2>Methods</h2>
+        <p>
+
+
+
+
+        </p>
+
+      </section>
+
+      <section>
+        <h2>Results</h2>
+
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+
+
+
+
+
+        </p>
+      </section>
+
+    </div>
+	
+	
+	
+	
+	
+	
+	
   </main>
 
   <footer>
-    <p>Caden Phillips 2025 — Rotating Neutron Star Modelling</p>
+    <p>Caden Phillips 2025 — Independant Reseach</p>
   </footer>
+
 </body>
 </html>

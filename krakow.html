@@ -215,27 +215,28 @@
     <section>
       <h2>Overview</h2>
       <p>
-        Neutron stars provide a natural laboratory for testing matter under densities unreachable on Earth,
-        bridging the limits of nuclear and particle physics. This project explored how quark deconfinement
+		Neutron stars are among the most compact objects in the universe, reaching densities that are unreachable
+		on Earth. Our understanding of the physics behind what causes these immense densities is limited and models
+		which we produce are constructed using an equation of state (EoS). 
+		This project aims to link the microscopic and macroscopic properties of these compact stars using a hybrid EoS,
+		where a phase transition from hadronic to quark matter occurs, to attain an understanding of how quark deconfinement
         within such stars could leave detectable signatures in gravitational-wave observations from binary
-        mergers. Using a hybrid equation of state (EoS) approach, the study connects microphysical phase
-        transitions to macroscopic observables such as mass–radius relations and tidal deformabilities
-        relevant to the Einstein Telescope’s sensitivity range.
+        mergers.
       </p>
 
       <p>
-        A Python implementation of a TOV solver (converted from C++) was used to generate mass–radius and
-        tidal-deformability sequences for a set of hybrid EoS models. Results are compared against constraints
-        consistent with GW170817, and key transition properties are visualised through thermodynamic and
-        structural diagnostics described below.
+        A Python implementation of a TOV solver (converted from FORTRAN) was used to generate mass–radius and
+        tidal-deformability sequences for a set of hybrid EoS models. These results were compared against constraints
+        consistent with GW170817.
+		
       </p>
     </section>
 
     <section>
-      <h2>Hybrid Equations of State & Phase Transition</h2>
+      <h2>Hybrid Equations of State and Phase Transition</h2>
 
       <figure class="fig-float right">
-        <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical potential across hybrid EoS">
+        <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical-potential across hybrid EoS">
         <figcaption>
           Pressure–chemical potential trends across the hybrid EoS set, showing where the first-order phase transition
           turns on and how the quark-matter stiffness varies.
@@ -243,14 +244,11 @@
       </figure>
 
       <p>
-        The pressure–chemical potential (P–μ) relation provides a clear thermodynamic view of the hadron–quark phase transition
-        in dense stellar matter. When plotted, the intersection of the hadronic and quark branches marks the coexistence point,
-        where both phases share equal pressure and chemical potential—a characteristic of a first-order transition constructed
-        via the Maxwell method. Below this transition, pressure rises smoothly with μ, reflecting stable hadronic behaviour,
-        while above it the quark matter branch exhibits a shallower slope, signifying a reduced stiffness at higher densities.
-        The location of this intersection depends sensitively on the model parameters, particularly the effective gluon mass,
-        and determines the onset density of deconfinement within the stellar core. This relationship therefore bridges microscopic
-        quark-level physics and macroscopic stellar observables.
+		The pressure–chemical potential (P–μ) relation provides a clear thermodynamic view of the transition between the hadronic and
+		quark phases. The intersection in a plot of pressure against chemical-potential between the hadronic and quark branches marks 
+		the point of the phase transition. At pressures below this phase transition, the matter is hadronic. Once the phase transition
+		occurs and the pressure rises beyond the transition point, the matter transitions to a deconfined quark phase. The pressure at
+		which the phase transition occurs is dependent on the parameters of the EoS model, particularly the effective gluon mass.
       </p>
 
       <figure class="fig-float left">
@@ -267,7 +265,7 @@
         reflecting the growing resistance to compression. As the phase transition to quark matter begins, the curve softens—
         its slope decreases—indicating a temporary loss of stiffness. When the transition is strong, this discontinuity can
         produce an unstable region in the mass–radius sequence, eventually leading to the formation of a re-stabilised hybrid
-        branch. This so-called <em>twin-star behaviour</em> illustrates how small changes in the microphysics of the equation
+        branch. This so-called twin-star behaviour illustrates how small changes in the microphysics of the equation
         of state can give rise to two classes of stars with similar masses but markedly different radii.
       </p>
 
@@ -275,23 +273,20 @@
     </section>
 
     <section>
-      <h2>TOV Modelling, Twin-Star Behaviour & Mass–Radius Sequences</h2>
+      <h2>TOV Modelling, Twin-Star Behaviour and Mass–Radius Sequences</h2>
 
       <figure class="fig-float right">
         <img src="images/MR_Mg=600_00_06.dat.png" alt="Example mass–radius sequence with a hybrid branch">
         <figcaption>
-          Example mass–radius track produced by the Python TOV solver. An unstable segment separates the ordinary
-          neutron-star branch from a re-stabilised hybrid branch (twin-star behaviour).
+          Example mass–radius track produced by the Python TOV solver. This example exhibits twin-star behaviour.
         </figcaption>
       </figure>
 
       <p>
-        Integration of the Tolman–Oppenheimer–Volkoff (TOV) equations was performed for each EoS to obtain equilibrium
-        sequences of mass and radius. The resulting tracks exhibit the characteristic pattern predicted by strong
-        first-order phase transitions: a stable hadronic branch, an intermediate unstable region, and a secondary,
-        re-stabilised hybrid branch. The existence of this distinct second family—the <em>twin-star</em> configuration—
-        demonstrates how the hybrid core’s stiffness recovery counteracts gravitational collapse once deconfined quark
-        matter dominates the central pressure.
+		Integration of the Tolman–Oppenheimer–Volkoff (TOV) equations was performed for each EoS to obtain equilibrium
+        sequences of mass and radius. The resulting plot indicates a strong first-order phase transition: a stable hadronic
+		branch, a stable hybrid branch and an unstable hybrid branch. The existence of this stable hybrid branch indicates 
+		the possibility of a "twin-star" phenomenon, where two neutron stars can exist with the same mass but different radii.
       </p>
 
       <p>
@@ -317,15 +312,16 @@
 	  <figure class="fig-float left">
 		<img src="images/LM_Mg=600_00_06.dat.png" alt="Lambda vs Mass for a representative EoS">
 		<figcaption>
-		  Λ(M) for a representative model. The rapid decrease of tidal deformability with mass shows a distinct change
+		  Example mass-tidal deformability plot. The rapid decrease of tidal deformability with mass shows a distinct change
 		  when the hybrid core forms, reflecting the compactness change across the sequence.
 		</figcaption>
 	  </figure>
 
 	  <p>
 		The tidal deformability (Λ) acts as the critical observable linking microscopic matter properties to the 
-		gravitational-wave signatures detected during binary neutron star mergers. It quantifies how easily a star’s shape 
-		distorts under its companion’s gravitational field, directly encoding the stiffness of the underlying equation of state. 
+		gravitational-wave signatures detected during binary neutron star mergers. For a binary star system, as the two stars orbit
+		each other, they emit gravitational waves. For neutron stars with higher tidal deformability, the tidal imprint on the 
+		gravitational-wave signal is stronger.
 		As the star becomes more compact, Λ falls sharply—reducing the tidal imprint on the waveform. This behaviour, captured 
 		in the Λ–M relation, is particularly sensitive to the presence of a quark-matter core: once deconfinement occurs, the 
 		reduced internal stiffness drives a visible kink in the sequence, providing an indirect but measurable indicator of the 
@@ -352,7 +348,7 @@
 		<img src="images/Tidal Deformability Comparison.png" alt="Binary tidal deformabilities compared to observational contours">
 		<figcaption>
 		  Binary tidal deformabilities (Λ₂ versus Λ₁) in comparison with observational confidence regions.
-		  The plotted models fall within the indicated contours, validating the code output.
+		  The plotted models do not fall within the indicated contours, indicating discrepancies.
 		</figcaption>
 	  </figure>
 	</section>
@@ -361,20 +357,16 @@
     <section>
       <h2>Summary</h2>
       <p>
-        The figures above summarise the workflow: hybrid EoS construction with a first-order transition,
-        TOV-based M–R generation including twin-star branches, and tidal-deformability diagnostics used for
-        gravitational-wave comparisons. The qualitative behaviours align with published predictions: the emergence
-        of a re-stabilised hybrid branch under strong phase transitions and the associated decrease in Λ for
-        more compact configurations. These results collectively demonstrate how microphysical assumptions about
-        deconfinement manifest as testable astrophysical signatures.
+		This project managed to model neutron stars from equations of state using a TOV solver, producing both Mass-Radius and
+		Mass-Tidal Deformability plots. The data from these plots were then checked against observed constraints from published data.
       </p>
     </section>
 
     <section>
       <h2>Downloads</h2>
       <ul>
-        <li><a href="files/IFJPAN.pdf" download>Final Report (PDF)</a></li>
-        <li><a href="files/Yaiza_Caden_Project_10.pptx" download>Presentation Slides (PPTX)</a></li>
+        <li><a href="files/Physical Inputs for Simulations of Gravitational Wave Emissions from Compact Stars within the Einstein Telescope Detection Range.pdf" download>Final Report (PDF)</a></li>
+        <li><a href="files/Yaiza_Caden_Project_10(7).pptx" download>Presentation Slides (PPTX)</a></li>
         <li><a href="files/certificate_Caden.pdf" download>IFJ PAN Certificate (PDF)</a></li>
       </ul>
     </section>

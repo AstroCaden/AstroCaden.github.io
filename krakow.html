@@ -215,20 +215,19 @@
     <section>
       <h2>Overview</h2>
       <p>
-		Neutron stars are among the most compact objects in the universe, reaching densities that are unreachable
-		on Earth. Our understanding of the physics behind what causes these immense densities is limited and models
-		which we produce are constructed using an equation of state (EoS). 
-		This project aims to link the microscopic and macroscopic properties of these compact stars using a hybrid EoS,
-		where a phase transition from hadronic to quark matter occurs, to attain an understanding of how quark deconfinement
+        Neutron stars are among the most compact objects in the universe, reaching densities that are unreachable
+        on Earth. Our understanding of the physics behind what causes these immense densities is limited and models
+        which we produce are constructed using an equation of state (EoS).
+        This project aims to link the microscopic and macroscopic properties of these compact stars using a hybrid EoS,
+        where a phase transition from hadronic to quark matter occurs, to attain an understanding of how quark deconfinement
         within such stars could leave detectable signatures in gravitational-wave observations from binary
         mergers.
       </p>
 
       <p>
-        A Python implementation of a TOV solver (converted from FORTRAN) was used to generate mass–radius and
+        A Python implementation of a TOV solver (converted from Fortran) was used to generate mass–radius and
         tidal-deformability sequences for a set of hybrid EoS models. These results were compared against constraints
         consistent with GW170817.
-		
       </p>
     </section>
 
@@ -236,7 +235,7 @@
       <h2>Hybrid Equations of State and Phase Transition</h2>
 
       <figure class="fig-float right">
-        <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical-potential across hybrid EoS">
+        <img src="images/Pressure_vs_Mu_Overall_FINAL.png" alt="Pressure vs chemical potential across hybrid EoS">
         <figcaption>
           Pressure–chemical potential trends across the hybrid EoS set, showing where the first-order phase transition
           turns on and how the quark-matter stiffness varies.
@@ -244,11 +243,11 @@
       </figure>
 
       <p>
-		The pressure–chemical potential (P–μ) relation provides a clear thermodynamic view of the transition between the hadronic and
-		quark phases. The intersection in a plot of pressure against chemical-potential between the hadronic and quark branches marks 
-		the point of the phase transition. At pressures below this phase transition, the matter is hadronic. Once the phase transition
-		occurs and the pressure rises beyond the transition point, the matter transitions to a deconfined quark phase. The pressure at
-		which the phase transition occurs is dependent on the parameters of the EoS model, particularly the effective gluon mass.
+        The pressure–chemical potential (P–μ) relation provides a clear thermodynamic view of the transition between the hadronic and
+        quark phases. The intersection in a plot of pressure against chemical potential between the hadronic and quark branches marks
+        the point of the phase transition. At pressures below this phase transition, the matter is hadronic. Once the phase transition
+        occurs and the pressure rises beyond the transition point, the matter transitions to a deconfined quark phase. The pressure at
+        which the phase transition occurs is dependent on the parameters of the EoS model, particularly the effective gluon mass.
       </p>
 
       <figure class="fig-float left">
@@ -283,10 +282,10 @@
       </figure>
 
       <p>
-		Integration of the Tolman–Oppenheimer–Volkoff (TOV) equations was performed for each EoS to obtain equilibrium
+        Integration of the Tolman–Oppenheimer–Volkoff (TOV) equations was performed for each EoS to obtain equilibrium
         sequences of mass and radius. The resulting plot indicates a strong first-order phase transition: a stable hadronic
-		branch, a stable hybrid branch and an unstable hybrid branch. The existence of this stable hybrid branch indicates 
-		the possibility of a "twin-star" phenomenon, where two neutron stars can exist with the same mass but different radii.
+        branch, a stable hybrid branch and an unstable hybrid branch. The existence of this stable hybrid branch indicates
+        the possibility of a "twin-star" phenomenon, where two neutron stars can exist with the same mass but different radii.
       </p>
 
       <p>
@@ -306,59 +305,58 @@
       </figure>
     </section>
 
-	<section>
-	  <h2>Tidal Deformability</h2>
+    <section>
+      <h2>Tidal Deformability</h2>
 
-	  <figure class="fig-float left">
-		<img src="images/LM_Mg=600_00_06.dat.png" alt="Lambda vs Mass for a representative EoS">
-		<figcaption>
-		  Example mass-tidal deformability plot. The rapid decrease of tidal deformability with mass shows a distinct change
-		  when the hybrid core forms, reflecting the compactness change across the sequence.
-		</figcaption>
-	  </figure>
+      <figure class="fig-float left">
+        <img src="images/LM_Mg=600_00_06.dat.png" alt="Lambda vs Mass for a representative EoS">
+        <figcaption>
+          Example mass–tidal deformability plot. The rapid decrease of tidal deformability with mass shows a distinct change
+          when the hybrid core forms, reflecting the compactness change across the sequence.
+        </figcaption>
+      </figure>
 
-	  <p>
-		The tidal deformability (Λ) acts as the critical observable linking microscopic matter properties to the 
-		gravitational-wave signatures detected during binary neutron star mergers. For a binary star system, as the two stars orbit
-		each other, they emit gravitational waves. For neutron stars with higher tidal deformability, the tidal imprint on the 
-		gravitational-wave signal is stronger.
-		As the star becomes more compact, Λ falls sharply—reducing the tidal imprint on the waveform. This behaviour, captured 
-		in the Λ–M relation, is particularly sensitive to the presence of a quark-matter core: once deconfinement occurs, the 
-		reduced internal stiffness drives a visible kink in the sequence, providing an indirect but measurable indicator of the 
-		phase transition.
-	  </p>
+      <p>
+        The tidal deformability (Λ) acts as the critical observable linking microscopic matter properties to the
+        gravitational-wave signatures detected during binary neutron-star mergers. For a binary star system, as the two stars orbit
+        each other, they emit gravitational waves. For neutron stars with higher tidal deformability, the tidal imprint on the
+        gravitational-wave signal is stronger.
+        As the star becomes more compact, Λ falls sharply—reducing the tidal imprint on the waveform. This behaviour, captured
+        in the Λ–M relation, is particularly sensitive to the presence of a quark-matter core: once deconfinement occurs, the
+        reduced internal stiffness drives a visible kink in the sequence, providing an indirect but measurable indicator of the
+        phase transition.
+      </p>
 
-	  <p>
-		For hybrid EoS models, this transition region produces a striking signature—an abrupt drop in Λ around the mass range 
-		corresponding to the hybrid branch in the M–R diagram. Within the context of GW170817 and the sensitivity of upcoming 
-		observatories such as the Einstein Telescope, this feature defines an astrophysical “hook”: a testable prediction that 
-		the imprint of quark deconfinement could emerge directly in the tidal phase evolution of binary inspirals. Thus, the 
-		tidal deformability is not only a measure of compactness but a probe of the fundamental structure of matter at 
-		supranuclear densities.
-	  </p>
+      <p>
+        For hybrid EoS models, this transition region produces a striking signature—an abrupt drop in Λ around the mass range
+        corresponding to the hybrid branch in the M–R diagram. Within the context of GW170817 and the sensitivity of upcoming
+        observatories such as the Einstein Telescope, this feature defines an astrophysical “hook”: a testable prediction that
+        the imprint of quark deconfinement could emerge directly in the tidal phase evolution of binary inspirals. Thus, the
+        tidal deformability is not only a measure of compactness but a probe of the fundamental structure of matter at
+        supranuclear densities.
+      </p>
 
-	  <figure class="center">
-		<img src="images/Lambda_vs_Mass_FINAL.png" alt="Combined Lambda vs Mass relations">
-		<figcaption>
-		  Combined Λ–M curves across the model set. Lower Λ values correspond to more compact configurations.
-		</figcaption>
-	  </figure>
+      <figure class="center">
+        <img src="images/Lambda_vs_Mass_FINAL.png" alt="Combined Lambda vs Mass relations">
+        <figcaption>
+          Combined Λ–M curves across the model set. Lower Λ values correspond to more compact configurations.
+        </figcaption>
+      </figure>
 
-	  <figure class="center tight">
-		<img src="images/Tidal Deformability Comparison.png" alt="Binary tidal deformabilities compared to observational contours">
-		<figcaption>
-		  Binary tidal deformabilities (Λ₂ versus Λ₁) in comparison with observational confidence regions.
-		  The plotted models do not fall within the indicated contours, indicating discrepancies.
-		</figcaption>
-	  </figure>
-	</section>
-
+      <figure class="center tight">
+        <img src="images/Tidal Deformability Comparison.png" alt="Binary tidal deformabilities compared to observational contours">
+        <figcaption>
+          Binary tidal deformabilities (Λ₂ versus Λ₁) in comparison with observational confidence regions.
+          The plotted models do not fall within the indicated contours, indicating discrepancies.
+        </figcaption>
+      </figure>
+    </section>
 
     <section>
       <h2>Summary</h2>
       <p>
-		This project managed to model neutron stars from equations of state using a TOV solver, producing both Mass-Radius and
-		Mass-Tidal Deformability plots. The data from these plots were then checked against observed constraints from published data.
+        This project managed to model neutron stars from equations of state using a TOV solver, producing both Mass–Radius and
+        Mass–Tidal Deformability plots. The data from these plots were then checked against observed constraints from published data.
       </p>
     </section>
 

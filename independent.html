@@ -261,35 +261,56 @@
       <section>
         <h2>Overview</h2>
         <p>
-
-
-
-
+		This independent project focuses on analysing a compact binary system using archival X-ray observations from the 
+		<strong>NICER</strong> mission in the <strong>HEASoft</strong> databased. The objective of this project is to develop
+		a fully automated and reproducaible workflow that extracts, processes and analyses X-ray light curves from these systems.
+		This allows time-domain studies of variability across multiple observing epochs.
         </p>
       </section>
 
       <section>
         <h2>Methods</h2>
         <p>
-
-
-
-
+		A Python-based pipline was developed which integrates HEASoft tools in Bash via scripted workflows. This pipeline automated 
+		data retreaval from the HEASARC database, applied variable filtering parameters and calibration. It used XSELECT in batch mode
+		to extract these X-ray light curves across multiple ObsIDs, which are then displayed in Python.
+		</p>
+		<p>
+		A simple flare-identification model was implimented to flag transient increases in count rate above a baseline threshold.
+		This component is treated as a toy model to serve as a proof-of-concept for automated variability detection rather than 
+		a statistically complete flare-analysis framework.
         </p>
 
       </section>
 
       <section>
         <h2>Results</h2>
+		<figure>
+		  <img src="images/1RXS_bary.png" alt="Example NICER X-ray light curve">
+		  <figcaption>
+			Example NICER light curve of 1RXS J154439.5-112820 ObsID 1030120108. Plot of Count rate against time, demonstrating how
+			the count rate varies over time.
+		  </figcaption>
+		  
+		</figure>
+				<figure>
+		  <img src="images/1RSX_combined_1.png" alt="Combined NICER X-ray light curve with flare filtering">
+		  <figcaption>
+			Example NICER light curve of 1RXS J154439.5-112820 comined over the second specific epoch. 
+			Plot of Count rate against time, demonstrating how the count rate varies over time. Points marked in red are considered to 
+			be flares.
+		  </figcaption>
+		</figure>
+
 
       </section>
 
       <section>
         <h2>Summary</h2>
         <p>
-
-
-
+		This project demonstrates the complete workflow for NICER X-ray data analysis. From importing archival data, filtering, processing
+		and analysing that data using HEASoft tools in Python. While the current analysis is deliberately simplified, the pipeline provides 
+		a solid foundation for future improvements incorporating more statistically robust timing and variability analyses. 
 
 
         </p>

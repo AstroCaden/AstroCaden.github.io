@@ -56,7 +56,7 @@
 
     header h1 {
       color: var(--accent);
-      margin: 0 0 .5rem 0;
+      margin: 0 0 0.5rem 0;
       font-size: 2.4rem;
       text-shadow: 0 0 25px var(--accent-glow);
       width: 100%;
@@ -118,7 +118,7 @@
       color: var(--accent);
       font-family: var(--font-code);
       border-bottom: 1px solid rgba(109,168,255,0.3);
-      padding-bottom: .4rem;
+      padding-bottom: 0.4rem;
       margin-top: 0;
       margin-bottom: 1.2rem;
     }
@@ -147,9 +147,9 @@
     }
 
     figcaption {
-      font-size: .9rem;
+      font-size: 0.9rem;
       color: var(--muted);
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       line-height: 1.4;
     }
 
@@ -186,27 +186,25 @@
   <main>
 
     <div class="project-box">
-	  <h1> Rotating Neutron Star Modelling </h1>
+      <h1>Rotating Neutron Star Modelling</h1>
+
       <section>
         <h2>Overview</h2>
         <p>
-
-		  I began this independent reseach project following my internship at the IFJ PAN in Krakow. It aims to investigate
-		  rotating neutron stars using two numerical relativity frameworks: RNS and LORENE, varying the properties, such
-		  as: mass, radius, frequency, and central density and analysing the results.
+          I began this independent research project following my internship at IFJ PAN in Kraków. It aims to investigate
+          rotating neutron stars using two numerical relativity frameworks: RNS and LORENE, varying properties such as
+          mass, radius, rotation frequency, and central density, and analysing the results.
         </p>
       </section>
 
       <section>
         <h2>Methods</h2>
         <p>
-
-		  
-		  Creating a C++ program that varies the mass and radius of the neutron star, between set limits, using a predetermined equation 
-		  of state (EoS), in both LORENE and RNS and exporting each result to a seperate data file. A python program can then be developed 
-		  and used to take this modelled data and visualise this using both 2 dimensional and 3 dimensinoal plots.
+          A C++ program was created to vary the mass and radius of a neutron star between set limits using a predetermined
+          equation of state (EoS) in both LORENE and RNS, exporting each result to a separate data file. A Python program
+          was then developed to process this modelled data and visualise it using both two-dimensional and three-dimensional
+          plots.
         </p>
-
       </section>
 
       <section>
@@ -215,26 +213,28 @@
         <figure>
           <img src="images/rns1.png" alt="2D relationships between RNS parameters">
           <figcaption>
-            2D relationships between RNS parameters showing dependencies between mass, radius, frequency, and central density.
+            Two-dimensional relationships between RNS parameters showing dependencies between mass, radius, frequency,
+            and central density.
           </figcaption>
         </figure>
 
         <p>
-          The six-panel figure summarises 2D parameter relationships extracted from the RNS output. Clear correlations
-          appear between mass, radius, and central density, demonstrating the expected relativistic behaviour of compact
-          stars under rapid rotation.
+          The six-panel figure summarises two-dimensional parameter relationships extracted from the RNS output. Clear
+          correlations appear between mass, radius, and central density, demonstrating the expected relativistic
+          behaviour of compact stars under rapid rotation.
         </p>
 
         <figure>
           <img src="images/rns2.png" alt="3D relationships between RNS parameters">
           <figcaption>
-            3D relationship between RNS parameters – frequency versus radius versus mass, coloured by central density.
+            Three-dimensional relationship between RNS parameters — frequency versus radius versus mass, coloured by
+            central density.
           </figcaption>
         </figure>
 
         <p>
-          The 3D projection highlights how increasing rotation frequency leads to larger equatorial radii and reduced
-          central densities at fixed mass, consistent with centrifugal flattening.
+          The three-dimensional projection highlights how increasing rotation frequency leads to larger equatorial radii
+          and reduced central densities at fixed mass, consistent with centrifugal flattening.
         </p>
       </section>
 
@@ -244,90 +244,72 @@
           This project demonstrates a fully automated workflow for relativistic stellar modelling using RNS and LORENE,
           combining compiled simulation pipelines in C++ with Python-based post-processing. The resulting visualisations
           provide an effective framework for exploring how stellar rotation influences equilibrium structure and form a
-          foundation for future work including equation of state variations and gravitational-wave–relevant properties.
+          foundation for future work, including equation-of-state variations and gravitational-wave–relevant properties.
         </p>
       </section>
-
     </div>
 
-
-
-
-
-
-
     <div class="project-box">
-	  <h1> Using HEASoft to analyse archived NICER data of tMSPs </h1>
+      <h1>Using HEASoft to Analyse Archived NICER Data of tMSPs</h1>
+
       <section>
         <h2>Overview</h2>
         <p>
-		This independent project focuses on analysing a compact binary system using archival X-ray observations from the 
-		<strong>NICER</strong> mission in the <strong>HEASoft</strong> databased. The objective of this project is to develop
-		a fully automated and reproducaible workflow that extracts, processes and analyses X-ray light curves from these systems.
-		This allows time-domain studies of variability across multiple observing epochs.
+          This independent project focuses on analysing a compact binary system using archival X-ray observations from
+          the <strong>NICER</strong> mission via the <strong>HEASoft</strong> database. The objective is to develop a fully
+          automated and reproducible workflow that extracts, processes, and analyses X-ray light curves from these systems,
+          enabling time-domain studies of variability across multiple observing epochs.
         </p>
       </section>
 
       <section>
         <h2>Methods</h2>
         <p>
-		A Python-based pipline was developed which integrates HEASoft tools in Bash via scripted workflows. This pipeline automated 
-		data retreaval from the HEASARC database, applied variable filtering parameters and calibration. It used XSELECT in batch mode
-		to extract these X-ray light curves across multiple ObsIDs, which are then displayed in Python.
-		</p>
-		<p>
-		A simple flare-identification model was implimented to flag transient increases in count rate above a baseline threshold.
-		This component is treated as a toy model to serve as a proof-of-concept for automated variability detection rather than 
-		a statistically complete flare-analysis framework.
+          A Python-based pipeline was developed that integrates HEASoft tools in Bash via scripted workflows. This pipeline
+          automated data retrieval from the HEASARC database, applied variable filtering parameters and calibration, and
+          used XSELECT in batch mode to extract X-ray light curves across multiple ObsIDs, which were then visualised in Python.
         </p>
-
+        <p>
+          A simple flare-identification model was implemented to flag transient increases in count rate above a baseline
+          threshold. This component is treated as a toy model, serving as a proof of concept for automated variability
+          detection rather than a statistically complete flare-analysis framework.
+        </p>
       </section>
 
       <section>
         <h2>Results</h2>
-		<figure>
-		  <img src="images/1RXS_bary.png" alt="Example NICER X-ray light curve">
-		  <figcaption>
-			Example NICER light curve of 1RXS J154439.5-112820 ObsID 1030120108. Plot of Count rate against time, demonstrating how
-			the count rate varies over time.
-		  </figcaption>
-		  
-		</figure>
-				<figure>
-		  <img src="images/1RSX_combined_1.png" alt="Combined NICER X-ray light curve with flare filtering">
-		  <figcaption>
-			Example NICER light curve of 1RXS J154439.5-112820 comined over the second specific epoch. 
-			Plot of Count rate against time, demonstrating how the count rate varies over time. Points marked in red are considered to 
-			be flares.
-		  </figcaption>
-		</figure>
 
+        <figure>
+          <img src="images/1RXS_bary.png" alt="Example NICER X-ray light curve">
+          <figcaption>
+            Example NICER light curve of 1RXS J154439.5−112820 (ObsID 1030120108), showing count rate as a function of time.
+          </figcaption>
+        </figure>
 
+        <figure>
+          <img src="images/1RSX_combined_1.png" alt="Combined NICER X-ray light curve with flare filtering">
+          <figcaption>
+            Combined NICER light curve of 1RXS J154439.5−112820 over a selected epoch. Points marked in red are identified
+            as candidate flares.
+          </figcaption>
+        </figure>
       </section>
 
       <section>
         <h2>Summary</h2>
         <p>
-		This project demonstrates the complete workflow for NICER X-ray data analysis. From importing archival data, filtering, processing
-		and analysing that data using HEASoft tools in Python. While the current analysis is deliberately simplified, the pipeline provides 
-		a solid foundation for future improvements incorporating more statistically robust timing and variability analyses. 
-
-
+          This project demonstrates a complete workflow for NICER X-ray data analysis, from importing archival data to
+          filtering, processing, and analysing it using HEASoft tools in Python. While the current analysis is deliberately
+          simplified, the pipeline provides a solid foundation for future improvements incorporating more statistically
+          robust timing and variability analyses.
         </p>
       </section>
-
     </div>
-	
-	
-	
-	
-	
-	
-	
+
   </main>
 
   <footer>
-    <p>Caden Phillips 2025 — Independant Reseach</p>
+    <p>Caden Phillips 2025 — Independent Research</p>
   </footer>
 
 </body>

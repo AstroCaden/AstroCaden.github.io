@@ -149,41 +149,39 @@
     a { color: var(--accent); text-decoration: none; transition: color 0.2s, text-shadow 0.3s; }
     a:hover { color: #c8daff; text-shadow: 0 0 8px var(--accent-glow); }
 
-    /* Contact Section (smaller and full width) */
-	/* Contact Section (extra compact, no wasted space) */
-	.contact {
-	  grid-column: 1 / -1;
-	  text-align: center;
-	  padding: 0.3rem 0.8rem 0.5rem; /* tightened vertical padding */
-	  background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.1), var(--card) 70%);
-	  backdrop-filter: blur(8px);
-	  border-radius: var(--radius);
-	  box-shadow: 0 0 12px rgba(0,0,0,0.4), 0 0 15px rgba(100,150,255,0.1);
-	}
+    /* Contact Section (extra compact, no wasted space) */
+    .contact {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 0.3rem 0.8rem 0.5rem; /* tightened vertical padding */
+      background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.1), var(--card) 70%);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      box-shadow: 0 0 12px rgba(0,0,0,0.4), 0 0 15px rgba(100,150,255,0.1);
+    }
 
-	.contact h2 {
-	  margin-bottom: 0.4rem; /* reduce gap below heading */
-	  font-size: 1.1rem;
-	}
+    .contact h2 {
+      margin-bottom: 0.4rem; /* reduce gap below heading */
+      font-size: 1.1rem;
+    }
 
-	.contact ul {
-	  display: flex;
-	  justify-content: center;
-	  flex-wrap: wrap;
-	  gap: 1.2rem;
-	  padding: 0;
-	  margin: 0;
-	}
+    .contact ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
 
-	.contact li {
-	  display: inline;
-	}
+    .contact li {
+      display: inline;
+    }
 
-	.contact a {
-	  font-family: var(--font-code);
-	  font-size: 0.95rem;
-	}
-
+    .contact a {
+      font-family: var(--font-code);
+      font-size: 0.95rem;
+    }
 
     /* Footer */
     footer {
@@ -219,10 +217,10 @@
     <section>
       <h2>About Me</h2>
       <div class="about-header">
-        <img src="images/profile.jpg" alt="Caden Phillips">
+        <img src="images/profile.jpg" alt="Caden Phillips" />
         <p>
-          I’m an MPhys Astrophysics student at the University of Liverpool, where my interests focus on 
-          neutron stars, gravitational waves, and computational analysis. I enjoy combining physics, 
+          I’m an MPhys Astrophysics student at the University of Liverpool, where my interests focus on
+          neutron stars, gravitational waves, and computational analysis. I enjoy combining physics,
           mathematics, and programming to model physical processes and interpret astronomical and observational data.
         </p>
       </div>
@@ -233,7 +231,7 @@
       <ul>
         <li><strong>Programming:</strong> Python, C++, Bash, MATLAB, LaTeX</li>
         <li><strong>Scientific Libraries:</strong> NumPy, SciPy, Astropy, matplotlib, pandas, ROOT</li>
-        <li><strong>Modelling Frameworks:</strong> LORENE, RNS, HEASoft</li>
+        <li><strong>Modeling Frameworks:</strong> LORENE, RNS, HEASoft</li>
         <li><strong>Other:</strong> Data analysis, numerical methods, scientific visualisation</li>
       </ul>
     </section>
@@ -241,7 +239,8 @@
     <section>
       <h2>Education</h2>
       <ul>
-        <li><strong>University of Liverpool</strong> — MPhys Astrophysics (Expected 2027)<br>
+        <li>
+          <strong>University of Liverpool</strong> — MPhys Astrophysics (Expected 2027)<br />
           Modules include Advanced Observational Astrophysics, Physics of Galaxies, Relativity and Cosmology.
         </li>
       </ul>
@@ -250,29 +249,33 @@
     <section>
       <h2>Research Experience</h2>
       <ul>
-        <li><strong>IFJ PAN, Kraków (2025):</strong> Studied gravitational-wave signals from compact stars, 
-          developing hybrid EoS models under Dr. David Álvarez Castillo.</li>
-        <li><strong>Teide Observatory, Tenerife (2025):</strong> Conducted multi-band photometry and 
-          produced HR diagrams from observational data using the IAC-80 telescope.</li>
-        <li><strong>Independent Project:</strong> Modelling rotational effects in neutron stars using RNS and LORENE.</li>
-		<li><strong>Independent Project:</strong> Using HEASoft to analyse archived NICER data of tMSPs.</li>
+        <li>
+          <strong>IFJ PAN, Kraków (2025):</strong> Studied gravitational-wave signals from compact stars,
+          developing hybrid EoS models under Dr. David Álvarez Castillo.
+        </li>
+        <li>
+          <strong>Teide Observatory, Tenerife (2025):</strong> Conducted multi-band photometry and
+          produced HR diagrams from observational data using the IAC-80 telescope.
+        </li>
+        <li><strong>Independent Project:</strong> Modeling rotational effects in neutron stars using RNS and LORENE.</li>
+        <li><strong>Independent Project:</strong> Using HEASoft to analyse archived NICER data of tMSPs.</li>
       </ul>
     </section>
 
     <section>
       <h2>Research Focus</h2>
       <p>
-        My current project is using archived optical observations to generate light curves of transitional millisecond pulsars
-		and analyse them.
+        My current project uses archived optical observations to generate light curves of transitional millisecond pulsars
+        and analyse them.
       </p>
     </section>
 
     <section>
-      <h2>Interests & Involvement</h2>
+      <h2>Interests &amp; Involvement</h2>
       <ul>
         <li>Associate Member, Institute of Physics (IOP)</li>
         <li>Astrophotography</li>
-        <li>Repeatable research</li>
+        <li>Reproducible research</li>
       </ul>
     </section>
 
@@ -280,8 +283,8 @@
       <h2>Contact</h2>
       <ul>
         <li><a href="mailto:cadenphillips05@hotmail.com">cadenphillips05@hotmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/AstroCaden" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/caden-phillips-60909b295/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/AstroCaden" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </section>
   </main>

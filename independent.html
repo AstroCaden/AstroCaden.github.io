@@ -256,18 +256,22 @@
         <h2>Overview</h2>
         <p>
           This independent project focuses on analysing a compact binary system using archival X-ray observations from
-          the <strong>NICER</strong> mission via the <strong>HEASoft</strong> database. The objective is to develop a fully
-          automated and reproducible workflow that extracts, processes, and analyses X-ray light curves from these systems,
-          enabling time-domain studies of variability across multiple observing epochs.
+          the <strong>NICER</strong> mission via the <strong>HEASoft</strong> database. The objective is to develope and 
+          create an automated pipeline which is capable of: downloading, processing, plotting and analysing the data of the 
+          objecet requested.
         </p>
+        <p>
+          A link to the program on GitHub can be found <a href="https://github.com/AstroCaden/HEASoft-Code"> here. </a>
+        </p>/
       </section>
 
       <section>
         <h2>Methods</h2>
         <p>
-          A Python-based pipeline was developed that integrates HEASoft tools in Bash via scripted workflows. This pipeline
-          automated data retrieval from the HEASARC database, applied variable filtering parameters and calibration, and
-          used XSELECT in batch mode to extract X-ray light curves across multiple ObsIDs, which were then visualised in Python.
+          A Python program was developed which integrates HEASoft tools in the Bash terminal via scripted workflows. These 
+          workflows are stored in seperate .xco files for user convenience. These files contain variables which the user can alter,
+          such as the energy filter range or which specific module to run. Furthermore, program is capable of automatically handling
+          many datasets across different ObsIDs and epochs to produce a variety of plots.
         </p>
         <p>
           A simple flare-identification model was implemented to flag transient increases in count rate above a baseline

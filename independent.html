@@ -256,45 +256,39 @@
         <h2>Overview</h2>
         <p>
           This independent project focuses on analysing a compact binary system using archival X-ray observations from
-          the <strong>NICER</strong> mission via the <strong>HEASoft</strong> database. The objective is to develope and 
-          create an automated pipeline which is capable of: downloading, processing, plotting and analysing the data of the 
-          objecet requested.
+          the <strong>NICER</strong> mission via the <strong>HEASoft</strong> database. The objective is to develop and 
+          create an automated pipeline which is capable of: downloading, processing, plotting and analysing the requested
+          object.
         </p>
         <p>
           A link to the program on GitHub can be found <a href="https://github.com/AstroCaden/HEASoft-Code"> here. </a>
-        </p>/
+        </p>
       </section>
 
       <section>
         <h2>Methods</h2>
         <p>
           A Python program was developed which integrates HEASoft tools in the Bash terminal via scripted workflows. These 
-          workflows are stored in seperate .xco files for user convenience. These files contain variables which the user can alter,
-          such as the energy filter range or which specific module to run. Furthermore, program is capable of automatically handling
+          workflows are stored in separate .xco files for user convenience. These files contain variables which the user can alter,
+          such as the energy filter range or which specific module to run. Furthermore, the program is capable of automatically handling
           many datasets across different ObsIDs and epochs to produce a variety of plots.
         </p>
         <p>
           A simple flare-identification model was implemented to flag transient increases in count rate above a baseline
           threshold. This component is treated as a toy model, serving as a proof of concept for automated variability
-          detection rather than a statistically complete flare-analysis framework.
+          detection rather than a statistically complete flare-analysis framework. Additionally, the program is capable of running both
+          nicer-l2 with XSELECT and nicer-l3, allowing the user to compare with standard procedure.
         </p>
       </section>
 
       <section>
         <h2>Results</h2>
 
-        <figure>
-          <img src="images/1RXS_bary.png" alt="Example NICER X-ray light curve">
-          <figcaption>
-            Example NICER light curve of 1RXS J154439.5−112820 (ObsID 1030120108), showing count rate as a function of time.
-          </figcaption>
-        </figure>
 
         <figure>
           <img src="images/1RSX_combined_1.png" alt="Combined NICER X-ray light curve with flare filtering">
           <figcaption>
-            Combined NICER light curve of 1RXS J154439.5−112820 over a selected epoch. Points marked in red are identified
-            as candidate flares.
+            Stacked NICER light curve of XSS_J12270-4859 over an epoch of 60 days using 20 bins. Energy range of 0.5–10 keV (NICER PI channels 50–1000).
           </figcaption>
         </figure>
       </section>
@@ -303,9 +297,9 @@
         <h2>Summary</h2>
         <p>
           This project demonstrates a complete workflow for NICER X-ray data analysis, from importing archival data to
-          filtering, processing, and analysing it using HEASoft tools in Python. While the current analysis is deliberately
-          simplified, the pipeline provides a solid foundation for future improvements incorporating more statistically
-          robust timing and variability analyses.
+          filtering, processing, and analysing it using HEASoft tools in Python. While the current flare statistics and
+          comparison modelling are simplified, the pipeline provides a strong foundation for future studies, incorporating 
+          more statistically robust timing and variability analyses, once these improvements are made.
         </p>
       </section>
     </div>

@@ -188,93 +188,94 @@
 
 
 
-  <div class="project-box">
-      <h1>A study of AGN across the &Delta;&alpha;<sub>ox</sub> spectrum in the <i>z</i> = 1.8--2.2 range.</h1>
+ <div class="project-box">
+    <h1>A study of AGN across the &Delta;&alpha;<sub>ox</sub> spectrum in the <i>z</i> = 1.8&ndash;2.2 range.</h1>
 
-      <section>
+    <section>
         <h2>Overview</h2>
-        <p>
-          This independent project focuses on analysing a different active galactic nuceli (AGN) in the <i>z</i> = 1.8--2.2 range
-          across the &Delta;&alpha;<sub>ox</sub> spectrum. It aims to differentiate the correlations between &Delta;&alpha;<sub>ox</sub>
-          and other characteristics such as hardness ratios and photon index. The project was designed around one offered by LEAPS Leiden ESA
-          which I was interviewed for.
-        </p>
-        <p>
-          A link to the program on GitHub can be found <a href="https://github.com/AstroCaden/HEASoft-Code"> here</a>.
-        </p>
-      </section>
 
-      <section>
+        <p>
+            This independent project focuses on analysing different active galactic nuclei (AGN)
+            in the <i>z</i> = 1.8&ndash;2.2 range across the &Delta;&alpha;<sub>ox</sub> spectrum.
+            It aims to differentiate the correlations between &Delta;&alpha;<sub>ox</sub> and other
+            characteristics such as hardness ratios and photon index. The project was designed
+            around one offered by LEAPS Leiden ESA which I was interviewed for.
+        </p>
+
+        <p>
+            A link to the program on GitHub can be found
+            <a href="https://github.com/AstroCaden/HEASoft-Code">here</a>.
+        </p>
+    </section>
+
+    <section>
         <h2>Methods</h2>
-        <p>
-            The parent sample was built by cross-matching the 5XMM-DR15 catalogue with SDSS DR16Q quasars at
-            \(z = 1.8\)--\(2.2\), applying cuts on X-ray detection quality, optical brightness, broad absorption
-            and radio loudness. Monochromatic luminosities at \(2\,\mathrm{keV}\) and \(2500\,\text{\AA}\) were
-            derived from the catalogue fluxes, a linear \(L_{2\,\mathrm{keV}}\)--\(L_{2500}\) relation was fitted
-            to the sample, and each source was assigned a \(\Delta\alpha_{\mathrm{ox}}\) from its residual, with
-            sources below \(-0.3\) and above \(+0.3\) classed as X-ray weak and strong.
-        </p>
-        
-        <p>
-            Individual targets were reduced from raw XMM-Newton data with SAS, filtering periods of soft proton
-            flaring and discarding observations with fewer than 50 pn counts. Source and background spectra and
-            light curves were extracted for the pn and MOS cameras, and the spectra were fitted over
-            \(0.5\)--\(8\,\mathrm{keV}\) in PyXSPEC with a Galactic-absorbed power law using the C-statistic.
-            Hardness ratios were calculated with BEHR, fractional variability was measured from the light curves,
-            and the fitted photon indices were validated against the 5XMM-DR15 catalogue.
-        </p>
-      </section>
 
-      <section>
+        <p>
+            The parent sample was built by cross-matching the 5XMM-DR15 catalogue with SDSS DR16Q
+            quasars at <i>z</i> = 1.8&ndash;2.2, applying cuts on X-ray detection quality, optical
+            brightness, broad absorption and radio loudness. Monochromatic luminosities at
+            2 keV and 2500 &Aring; were derived from the catalogue fluxes, a linear
+            L<sub>2 keV</sub>&ndash;L<sub>2500</sub> relation was fitted to the sample, and each
+            source was assigned a &Delta;&alpha;<sub>ox</sub> from its residual, with sources below
+            &minus;0.3 and above +0.3 classed as X-ray weak and strong.
+        </p>
+
+        <p>
+            Individual targets were reduced from raw XMM-Newton data with SAS, filtering periods
+            of soft proton flaring and discarding observations with fewer than 50 pn counts.
+            Source and background spectra and light curves were extracted for the pn and MOS
+            cameras, and the spectra were fitted over 0.5&ndash;8 keV in PyXSPEC with a
+            Galactic-absorbed power law using the C-statistic. Hardness ratios were calculated
+            with BEHR, fractional variability was measured from the light curves, and the fitted
+            photon indices were validated against the 5XMM-DR15 catalogue.
+        </p>
+    </section>
+
+    <section>
         <h2>Results</h2>
 
+        <figure>
+            <img src="images/[placeholder].png" alt="5XMM-DR16 dataset with weak and strong AGN.">
+            <figcaption>
+                5XMM-DR16 dataset with weak (blue) and strong AGN (red).
+                Totals to 46 X-ray weak AGN and 12 X-ray strong.
+            </figcaption>
+        </figure>
 
         <figure>
-          <img src="images/[placeholder].png" alt="5XMM-DR16 dataset with weak and strong AGN.">
-          <figcaption>
-            5XMM-DR16 dataset with weak (blue) and strong AGN (red). Totals to 46 X-ray weak AGN and 12 X-ray strong.
-          </figcaption>
+            <img src="images/[placeholder].png" alt="Plot of photon index against Delta alpha ox.">
+            <figcaption>
+                Plot of photon index against &Delta;&alpha;<sub>ox</sub> using all successfully
+                processed AGN. Shows very weak-to-no correlation, indicating that photon index
+                does not vary with X-ray weakness or strength.
+            </figcaption>
         </figure>
-      </section>
-        
 
         <figure>
-          <img src="images/[placeholder].png" alt="Plot of photon index against &Delta;&alpha;<sub>ox</sub>.">
-          <figcaption>
-            Plot of photon index against &Delta;&alpha;<sub>ox</sub> using all successfully processed AGN. Shows very weak-to-no correlation.
-            Indicating that photon index does not vary with X-ray weakness or strength.
-          </figcaption>
+            <img src="images/[placeholder].png" alt="Spectrum of J131109.57+391128.5">
+            <figcaption>
+                Strong power law spectrum showing peak in PN camera at 1.55&ndash;1.65 keV
+                (4.88&ndash;5.19 keV in the rest frame). It is consistent with instrumental
+                contamination within EPIC PN, given that this peak is not present in MOS1 or MOS2.
+            </figcaption>
         </figure>
-      </section>
+    </section>
 
-      <figure>
-          <img src="images/[placeholder].png" alt="Spectrum of J131109.57+391128.5">
-          <figcaption>
-            Strong power law spectrum showing peak in PN camera at 1.55-1.65 keV (4.88-5.19 keV in the rest frame). 
-            It is consistent with instrumental contamination within EPIC PN, given that this peak is not present in MOS1 or MOS2.
-          </figcaption>
-        </figure>
-      </section>
-
-
-
-    
-      <section>
+    <section>
         <h2>Summary</h2>
+
         <p>
-          An independent XMM-Newton pipeline was developed and validated against
-          published photon indices for quasars at <i>z</i> = 1.8--2.2. Applied to
-          X-ray weak, normal and strong quasars, it finds no link between photon index
-          and &Delta;&alpha;<sub>ox</sub>, while recovering the expected correlation
-          between photon index and hardness ratio. However, the small number of
-          well-constrained X-ray weak sources, and the scarcity of X-ray strong
-          sources, limit how firmly these results can be established.
+            An independent XMM-Newton pipeline was developed and validated against published
+            photon indices for quasars at <i>z</i> = 1.8&ndash;2.2. Applied to X-ray weak,
+            normal and strong quasars, it finds no link between photon index and
+            &Delta;&alpha;<sub>ox</sub>, while recovering the expected correlation between
+            photon index and hardness ratio. However, the small number of well-constrained
+            X-ray weak sources, and the scarcity of X-ray strong sources, limit how firmly
+            these results can be established.
         </p>
-      </section>
-    </div>
-
-
-
+    </section>
+</div>
 
 
 

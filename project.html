@@ -187,6 +187,80 @@
 
 
 
+ <div class="project-box">
+    <h1>A study of AGN across the &Delta;&alpha;<sub>ox</sub> spectrum in the <i>z</i> = 1.8&ndash;2.2 range.</h1>
+
+    <section>
+        <h2>Overview</h2>
+
+        <p>
+          When massive stars (M > 8 Msun) near the end of their lives, they can undergo spectacular explosions and leave behind some of the most interesting and poorly understood objects in the universe: Neutron stars and black holes. As most massive stars can be found in binaries, we expect many of these compact, dark objects to also have a companion. For a while, after one star in the binary has exploded, but the other is still happily shining and fusing elements, we might thus find an unlikely friendship between a star and a stellar corpse. While population models predict millions of such systems in the Milky Way, only a few have been found through extensive searches using both ground- and space-based spectroscopy, astrometry and photometry. Many times, astronomers have been tricked by so-called ‘imposter’ systems that masquerade as containing a compact object, but upon closer inspection revealed a stellar companion, hiding in the light of the primary star.
+        </p>
+        <p>
+          (Project Proposal. Dr. Rhys Seeberger, 2026)
+        </p>
+        <p>
+            A link to the code used for the project can be found on GitHub
+            <a href="https://github.com/AstroCaden/MPhys-Project">here</a>.
+        </p>
+    </section>
+
+    <section>
+        <h2>Data</h2>
+
+        <p>
+          The Gaia DR3 database was queried using ADQL under these parameters to find candidates: the lower bound mass of the seconday star must be higher than the upper bound of the primary, the mass of the lower bound of the secondary star must be <1.5M<sub>☉</sub> and >3M<sub>☉</sub>,
+          the significance of the orbital solution must be >20. This returned 23 candidates. These candidates were then checked against the FEROS and UVES databases finding 18 and 6 candidates with spectra respectively (the 6 UVES candidates were also found in FEROS). UVES was chosen as the primary dataset due to the nature of the 
+            FEROS data and the work required to process it. This left us with the following candidates: 4295254307232999296, 4039283116865495424, 4239611700214875904, 4973506334166805376, 6551893071549223040, and 6609971199873698944.
+        </p>
+
+    </section>
+    
+    <section>
+        <h2>Results</h2>
+
+        <p>
+          While this project is still in it's infancy, it has produced some results.
+        </p>
+
+
+      
+        <figure>
+            <img src="images/FEROS_UVES_GAIA.png" alt="All 18 candidates found in FEROS and UVES databases overlaid on 100,000 random stars from the Gaia catalogue.">
+            <figcaption>
+              All 18 candidates found in FEROS and UVES databases overlaid on 100,000 random stars from the Gaia catalogue. 
+              This indicates that the 18 candidates with spectra lie on or just above the upper main sequence, with none
+              on the giant branch. Some sit 2–3 magnitudes above the main sequence at their colour, consistent with either
+              evolution into the Hertzsprung gap or interstellar reddening, which has not yet been corrected. Regardless, it
+              supports the assumption that the primary star in each of these candidates is a main sequence or slightly evolved
+              star.
+            </figcaption>
+        </figure>
+
+
+
+      
+        <figure>
+            <img src="images/UVES_B_N_SUBPIX.png" alt="Spectra of all six UVES candidates. Barycentric corrections applied and normalised. Plotted before chip gap at approximately 576nm.">
+            <figcaption>
+              Spectra of all six UVES candidates. Barycentric corrections applied and normalised. Plotted before chip gap at approximately 576nm. All show strong Hβ absorption lines beside 6551893071549223040.
+              This, along with the turbulance of the spectra, suggests that the star is cold.
+            </figcaption>
+        </figure>
+
+
+
+
+      
+        <figure>
+            <img src="images/UVES_B_N_POSTPIX.png" alt="Spectra of all six UVES candidates. Barycentric corrections applied and normalised. Plotted after chip gap at approximately 576nm.">
+            <figcaption>
+              Spectra of all six UVES candidates. Barycentric corrections applied and normalised. Plotted after chip gap at approximately 576nm. All show strong Hα absorption lines beside 6551893071549223040 and 4039283116865495424.
+              The former is likelt for the reasons discussed in the previous figure whereas the latter shows a double peaked Hα which likely originates from an accretion disk. However, further study of this candidate is required to support that conclusion.
+            </figcaption>
+        </figure>
+
+    </section>
 
 
   </main>

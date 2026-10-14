@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Independent Research</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
+
+    :root {
+      --text: #e8eef6;
+      --muted: #a1a9b7;
+      --accent: #6da8ff;
+      --accent-glow: rgba(109,168,255,0.4);
+      --overlay: rgba(10, 12, 18, 0.85);
+      --card: rgba(20, 25, 32, 0.9);
+      --radius: 14px;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      line-height: 1.7;
+      background: url("images/M104 - Final.png") no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    header, main, footer, section {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header h1 {
+      color: var(--accent);
+      margin: 0 0 0.5rem 0;
+      font-size: 2.4rem;
+      text-shadow: 0 0 25px var(--accent-glow);
+      width: 100%;
+    }
+
+    header p {
+      color: var(--muted);
+      font-family: var(--font-code);
+      font-size: 1rem;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 1.8rem;
+      left: 2rem;
+      background: rgba(109,168,255,0.1);
+      border: 1px solid rgba(109,168,255,0.4);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .back-link:hover {
+      background: rgba(109,168,255,0.25);
+      box-shadow: 0 0 10px var(--accent-glow);
+      color: #cde2ff;
+    }
+
+    main {
+      max-width: 1300px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-box {
+      background: radial-gradient(circle at 25% 25%, rgba(109,168,255,0.06), var(--card) 70%);
+      backdrop-filter: blur(8px);
+      padding: 2.2rem 3rem;
+      border-radius: var(--radius);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5), 0 0 20px rgba(100,150,255,0.12);
+      margin-bottom: 2rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-family: var(--font-code);
+      border-bottom: 1px solid rgba(109,168,255,0.3);
+      padding-bottom: 0.4rem;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      text-align: justify;
+      margin: 0 0 1rem 0;
+    }
+
+    figure {
+      margin: 1.5rem auto;
+      text-align: center;
+      max-width: 750px;
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    figure img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px rgba(109,168,255,0.3);
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem 3rem;
+      backdrop-filter: blur(4px);
+      color: #7a8591;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      main { padding: 1.5rem; }
+      .project-box { padding: 1.6rem; }
+      header h1 { font-size: 2rem; }
+      .back-link { position: absolute; top: 1rem; left: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="index.html" class="back-link">← Return to Homepage</a>
+
+  <header>
+    <h1>MPhys Project</h1>
+    <p>Supervised by Dr. Rhys Seeberger</p>
+  </header>
+
+  <main>
+
+
+
+
+
+  </main>
+
+  <footer>
+    <p>Caden Phillips 2026 — MPhys Project</p>
+  </footer>
+
+</body>
+</html>
